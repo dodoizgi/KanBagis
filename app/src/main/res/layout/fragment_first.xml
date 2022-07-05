@@ -7,7 +7,7 @@
     tools:context=".fragment.FirstFragment">
 
     <EditText
-        android:id="@+id/blonde_group_text"
+        android:id="@+id/blood_group_text"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -20,44 +20,44 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/blonde_rh_text"
+        android:id="@+id/blood_rh_text"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:hint="Blonde Rh"
-        app:layout_constraintTop_toBottomOf="@+id/blonde_group_text" />
+        app:layout_constraintTop_toBottomOf="@+id/blood_group_text" />
 
     <EditText
-        android:id="@+id/blonde_phone_text"
+        android:id="@+id/blood_phone_text"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:hint="Phone Number"
-        app:layout_constraintTop_toBottomOf="@+id/blonde_rh_text" />
+        app:layout_constraintTop_toBottomOf="@+id/blood_rh_text" />
 
     <EditText
-        android:id="@+id/blonde_adress_text"
+        android:id="@+id/blood_adress_text"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:hint="Adress"
-        app:layout_constraintTop_toBottomOf="@+id/blonde_phone_text" />
+        app:layout_constraintTop_toBottomOf="@+id/blood_phone_text" />
 
     <EditText
-        android:id="@+id/blonde_message_text"
+        android:id="@+id/blood_message_text"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:hint="Message"
-        app:layout_constraintTop_toBottomOf="@+id/blonde_adress_text" />
+        app:layout_constraintTop_toBottomOf="@+id/blood_adress_text" />
 
 
     <Button
@@ -71,5 +71,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/blonde_message_text" />
+        app:layout_constraintTop_toBottomOf="@id/blood_message_text" />
 </androidx.constraintlayout.widget.ConstraintLayout>

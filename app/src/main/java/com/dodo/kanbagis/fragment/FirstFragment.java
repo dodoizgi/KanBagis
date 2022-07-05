@@ -12,6 +12,7 @@ import androidx.navigation.fragment.NavHostFragment;
 import com.dodo.kanbagis.R;
 import com.dodo.kanbagis.databinding.FragmentFirstBinding;
 import com.dodo.kanbagis.module.Blood;
+import com.dodo.kanbagis.utils.StringUtils;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -23,7 +24,7 @@ public class FirstFragment extends Fragment {
 
     @Override
     public View onCreateView(
-            LayoutInflater inflater, ViewGroup container,
+            @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
     ) {
 
@@ -39,16 +40,18 @@ public class FirstFragment extends Fragment {
             // Write a message to the database
             DatabaseReference  mDatabase = FirebaseDatabase.getInstance().getReference();
 
-            String adress = binding.blondeAdressText.getText().toString();
-            String bloodGroup = binding.blondeGroupText.getText().toString();
-            String messages = binding.blondeMessageText.getText().toString();
-            String phone = binding.blondePhoneText.getText().toString();
-            String rh = binding.blondeRhText.getText().toString();
+            String adress = binding.bloodAdressText.getText().toString();
+            String bloodGroup = binding.bloodGroupText.getText().toString();
+            String messages = binding.bloodMessageText.getText().toString();
+            String phone = binding.bloodPhoneText.getText().toString();
+            String rh = binding.bloodRhText.getText().toString();
 
-            Blood blood = new Blood(adress,bloodGroup,messages,phone,rh);
-            mDatabase.child("Blood").child(Objects.requireNonNull(mDatabase.push().getKey())).setValue(blood);
 
-            if (trustValue()) {
+            if (isFormValid(adress, bloodGroup, messages, phone, rh)) {
+
+                Blood blood = new Blood(adress,bloodGroup,messages,phone,rh);
+                mDatabase.child("Blood").child(Objects.requireNonNull(mDatabase.push().getKey())).setValue(blood);
+
                 NavHostFragment.findNavController(FirstFragment.this)
                         .navigate(R.id.action_FirstFragment_to_SecondFragment);
             }
@@ -61,9 +64,27 @@ public class FirstFragment extends Fragment {
         binding = null;
     }
 
-    private boolean trustValue() {
+    private boolean isFormValid(String adress, String bloodGroup, String messages, String phone, String rh) {
 
-        if (binding.blondeRhText.getText().toString() == null)
+        if (StringUtils.isNullOrEmpty(adress))
+            binding.bloodAdressText.setError("Please enter your address");
+
+        if (StringUtils.isNullOrEmpty(bloodGroup))
+            binding.bloodGroupText.setError("Please enter your blood group");
+
+        if (StringUtils.isNullOrEmpty(messages))
+            binding.bloodMessageText.setError("Please enter your message");
+
+        if (StringUtils.isNullOrEmpty(phone))
+            binding.bloodPhoneText.setError("Please enter your phone");
+
+        if (StringUtils.isNullOrEmpty(rh))
+            binding.bloodRhText.setError("Please enter your rh");
+
+
+            return !StringUtils.isNullOrEmpty(adress) && !StringUtils.isNullOrEmpty(bloodGroup) &&
+                    !StringUtils.isNullOrEmpty(messages) && !StringUtils.isNullOrEmpty(phone) &&
+                    !StringUtils.isNullOrEmpty(rh);
 
     }
 
