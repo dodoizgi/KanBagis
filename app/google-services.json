@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "77232205617",
+    "project_id": "kanbagis-aa187",
+    "storage_bucket": "kanbagis-aa187.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:77232205617:android:4a99a8f0db70ef2a088a10",
+        "android_client_info": {
+          "package_name": "com.dodo.kanbagis"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "77232205617-e2e2olundk9p3cnrkojiflv7e1l3r2et.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWrZMdm9cr7HsSpvXBoyaRBD8V8ANKtU4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "77232205617-e2e2olundk9p3cnrkojiflv7e1l3r2et.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
