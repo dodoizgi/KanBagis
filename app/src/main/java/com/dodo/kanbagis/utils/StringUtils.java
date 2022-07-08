@@ -35,6 +35,16 @@ public class StringUtils {
         return pat.matcher(str).matches();
     }
 
+    public static boolean isBlood(String str) {
+        return str.equalsIgnoreCase("A") || str.equalsIgnoreCase("a") ||
+                str.equalsIgnoreCase("b") || str.equalsIgnoreCase("B") ||
+                str.equalsIgnoreCase("0");
+    }
+
+    public static boolean isRh(String str) {
+        return str.equalsIgnoreCase("+") || str.equalsIgnoreCase("-");
+    }
+
     public static Date parseDate(String date) {
         try {
             for (String fmt : dateFormatters) {

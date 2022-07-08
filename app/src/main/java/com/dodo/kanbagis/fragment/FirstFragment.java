@@ -2,6 +2,7 @@ package com.dodo.kanbagis.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -13,6 +14,8 @@ import com.dodo.kanbagis.R;
 import com.dodo.kanbagis.databinding.FragmentFirstBinding;
 import com.dodo.kanbagis.module.Blood;
 import com.dodo.kanbagis.utils.StringUtils;
+import com.dodo.kanbagis.utils.Validator;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -21,6 +24,7 @@ import java.util.Objects;
 public class FirstFragment extends Fragment {
 
     private FragmentFirstBinding binding;
+    BottomNavigationView bottomNavigationView;
 
     @Override
     public View onCreateView(
@@ -36,6 +40,8 @@ public class FirstFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        initBottomMenu();
+
         binding.buttonFirst.setOnClickListener(view1 -> {
             // Write a message to the database
             DatabaseReference  mDatabase = FirebaseDatabase.getInstance().getReference();
@@ -47,7 +53,7 @@ public class FirstFragment extends Fragment {
             String rh = binding.bloodRhText.getText().toString();
 
 
-            if (isFormValid(adress, bloodGroup, messages, phone, rh)) {
+            if (isFormValid()) {
 
                 Blood blood = new Blood(adress,bloodGroup,messages,phone,rh);
                 mDatabase.child("Blood").child(Objects.requireNonNull(mDatabase.push().getKey())).setValue(blood);
@@ -64,28 +70,44 @@ public class FirstFragment extends Fragment {
         binding = null;
     }
 
-    private boolean isFormValid(String adress, String bloodGroup, String messages, String phone, String rh) {
-
-        if (StringUtils.isNullOrEmpty(adress))
-            binding.bloodAdressText.setError("Please enter your address");
-
-        if (StringUtils.isNullOrEmpty(bloodGroup))
-            binding.bloodGroupText.setError("Please enter your blood group");
-
-        if (StringUtils.isNullOrEmpty(messages))
-            binding.bloodMessageText.setError("Please enter your message");
-
-        if (StringUtils.isNullOrEmpty(phone))
-            binding.bloodPhoneText.setError("Please enter your phone");
-
-        if (StringUtils.isNullOrEmpty(rh))
-            binding.bloodRhText.setError("Please enter your rh");
-
-
-            return !StringUtils.isNullOrEmpty(adress) && !StringUtils.isNullOrEmpty(bloodGroup) &&
-                    !StringUtils.isNullOrEmpty(messages) && !StringUtils.isNullOrEmpty(phone) &&
-                    !StringUtils.isNullOrEmpty(rh);
-
+    private boolean isFormValid() {
+        return Validator.getInstance()
+                .isNotEmpty(binding.bloodAdressText, getResources().getString(R.string.Please_enter_your_address))
+                .isNotEmpty(binding.bloodGroupText, getResources().getString(R.string.Please_enter_your_blood_group))
+                .isBlood(binding.bloodGroupText, getResources().getString(R.string.Please_just_blood_group))
+                .isNotEmpty(binding.bloodMessageText, getResources().getString(R.string.Please_enter_your_message))
+                .isNotEmpty(binding.bloodPhoneText, getResources().getString(R.string.Please_enter_your_phone))
+                .isPhoneNumberCharacter(binding.bloodPhoneText, getResources().getString(R.string.Please_control_your_phone_number))
+                .isNotEmpty(binding.bloodRhText, getResources().getString(R.string.Please_enter_your_rh))
+                .isRh(binding.bloodRhText, getResources().getString(R.string.Please_just_rh))
+                .isValid();
     }
 
+    private void initBottomMenu() {
+        if (bottomNavigationView != null) {
+
+            bottomNavigationView.setItemIconTintList(null);
+            bottomNavigationView.setOnItemReselectedListener(item -> onMenuReselected());
+            bottomNavigationView.setOnItemSelectedListener(item -> {
+                menuItemSelected(item);
+                return true;
+            });
+        }
+    }
+
+    public void menuItemSelected(MenuItem item) {
+        int itemId = item.getItemId();
+        switch (itemId) {
+            case R.id.action_home:
+
+                break;
+            case R.id.action_add:
+                NavHostFragment.findNavController(FirstFragment.this)
+                        .navigate(R.id.action_FirstFragment_to_SecondFragment);
+                break;
+        }
+    }
+
+    protected void onMenuReselected() {
+    }
 }

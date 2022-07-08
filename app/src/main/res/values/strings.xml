@@ -1,12 +1,32 @@
 <resources>
+    <!-- A -->
+    <string name="action_add">Ekle</string>
+    <string name="action_homepage">Anasayfa</string>
     <string name="app_name">KanBagis</string>
-    <string name="action_settings">Settings</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <!-- F -->
+    <string name="first_fragment_label">First Fragment</string>
+
+    <!-- H -->
+    <string name="hello_first_fragment">Merhaba ilk fragment.</string>
+    <string name="hello_second_fragment">Merhaba ikinci fragment. Arg: %1$s</string>
+
+    <!-- N -->
+    <string name="next">Next</string>
+
+    <!-- P -->
+    <string name="Please_enter_your_address">Lütfen adresinizi giriniz.</string>
+    <string name="Please_enter_your_blood_group">Lütfen kan grubunuzu giriniz.</string>
+    <string name="Please_enter_your_message">Lütfen mesajınızı giriniz.</string>
+    <string name="Please_enter_your_phone">Lütfen telefon numaranızı giriniz.</string>
+    <string name="Please_enter_your_rh">Lütfen kan grubunuzu giriniz.</string>
+    <string name="Please_control_your_phone_number">Telefon numaranız başında 0 olmadan 10 karakter olmalıdır.</string>
+    <string name="Please_just_blood_group">Lütfen sadece kan grubunuzu giriniz.</string>
+    <string name="Please_just_rh">Lütfen sadece Rh + veya - giriniz.</string>
+    <string name="previous">Önceki</string>
+
+    <!-- S -->
+    <string name="second_fragment_label">İkinci Fragment</string>
+
+
 </resources>
