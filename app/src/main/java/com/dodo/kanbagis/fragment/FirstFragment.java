@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
+import com.dodo.kanbagis.BaseFragment;
 import com.dodo.kanbagis.R;
 import com.dodo.kanbagis.databinding.FragmentFirstBinding;
 import com.dodo.kanbagis.module.Blood;
@@ -21,10 +22,9 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Objects;
 
-public class FirstFragment extends Fragment {
+public class FirstFragment extends BaseFragment {
 
     private FragmentFirstBinding binding;
-    BottomNavigationView bottomNavigationView;
 
     @Override
     public View onCreateView(
@@ -39,8 +39,7 @@ public class FirstFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        initBottomMenu();
+        bindTo(binding.getRoot());
 
         binding.buttonFirst.setOnClickListener(view1 -> {
             // Write a message to the database
@@ -81,33 +80,5 @@ public class FirstFragment extends Fragment {
                 .isNotEmpty(binding.bloodRhText, getResources().getString(R.string.Please_enter_your_rh))
                 .isRh(binding.bloodRhText, getResources().getString(R.string.Please_just_rh))
                 .isValid();
-    }
-
-    private void initBottomMenu() {
-        if (bottomNavigationView != null) {
-
-            bottomNavigationView.setItemIconTintList(null);
-            bottomNavigationView.setOnItemReselectedListener(item -> onMenuReselected());
-            bottomNavigationView.setOnItemSelectedListener(item -> {
-                menuItemSelected(item);
-                return true;
-            });
-        }
-    }
-
-    public void menuItemSelected(MenuItem item) {
-        int itemId = item.getItemId();
-        switch (itemId) {
-            case R.id.action_home:
-
-                break;
-            case R.id.action_add:
-                NavHostFragment.findNavController(FirstFragment.this)
-                        .navigate(R.id.action_FirstFragment_to_SecondFragment);
-                break;
-        }
-    }
-
-    protected void onMenuReselected() {
     }
 }

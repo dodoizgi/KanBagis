@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.ProfileFragment"
+    android:background="@color/gray_200">
+
+    <ScrollView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="25dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/profile_user_image"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:background="@drawable/rounded_corners"
+                    android:padding="20dp"
+                    app:srcCompat="@drawable/ic_account"
+                    app:tint="@color/purple_500" />
+
+                <TextView
+                    android:id="@+id/profile_user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="5dp"
+                    android:text="..."
+                    android:textColor="@color/black"
+                    android:textSize="18dp"
+                    tools:text="Hamide Yıldırım" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/profile_my_account"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/rounded_corners"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="14dp">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/ic_bg_shapest"
+                    android:padding="6dp"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@drawable/ic_account"
+                    app:tint="@color/purple_500" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingHorizontal="16dp"
+                    android:text="Hesabım"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    app:srcCompat="@drawable/ic_next_fill_vc"
+                    app:tint="@color/gray_500" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/profile_my_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rounded_corners"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="14dp">
+
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:padding="6dp"
+                    android:scaleType="centerInside"
+                    android:background="@drawable/ic_bg_shapest"
+                    app:srcCompat="@drawable/ic_baseline_toc_24"
+
+                    app:tint="@color/purple_500" />
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingHorizontal="16dp"
+                    android:text="@string/blood_request"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    app:tint="@color/gray_500" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/profile_messsages"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rounded_corners"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="14dp">
+
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:padding="6dp"
+                    android:scaleType="centerInside"
+                    android:background="@drawable/ic_bg_shapest"
+                    app:srcCompat="@drawable/ic_message"
+                    app:tint="@color/purple_500" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingHorizontal="16dp"
+                    android:text="Mesajlar"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    app:tint="@color/gray_500" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/profile_my_settings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rounded_corners"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="14dp">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:padding="6dp"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@drawable/ic_account"
+                    android:background="@drawable/ic_bg_shapest"
+                    app:tint="@color/purple_500" />
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingHorizontal="16dp"
+                    android:text="Ayarlar"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    app:tint="@color/gray_500" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/settings_help"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rounded_corners"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="14dp"
+                android:visibility="visible">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:padding="6dp"
+                    android:scaleType="centerInside"
+                    android:background="@drawable/ic_bg_shapest"
+                    app:srcCompat="@drawable/ic_help"
+                    app:tint="@color/purple_500" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingHorizontal="16dp"
+                    android:text="Yardım"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+
+                <ImageView
+                    android:id="@+id/settings_help_arrow"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    app:tint="@color/gray_500" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/settings_help_subview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:background="@drawable/rounded_corners"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="14dp"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:id="@+id/help_nakilnat_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingVertical="10dp">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:padding="6dp"
+                        android:scaleType="centerInside"
+                        app:tint="@color/purple_500" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingHorizontal="16dp"
+                        android:text="Bize Ulaşın"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        app:tint="@color/gray_500" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingVertical="10dp">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:padding="6dp"
+                        android:scaleType="centerInside"
+                        app:tint="@color/purple_500" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingHorizontal="16dp"
+                        android:text="Canlı Destek"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+
+
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        app:tint="@color/gray_500" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/asked_question_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingVertical="10dp">
+
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:padding="6dp"
+                        android:scaleType="centerInside"
+                        app:tint="@color/purple_500" />
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingHorizontal="16dp"
+                        android:text="Sıkça Sorulan Sorular"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+
+
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        app:tint="@color/gray_500" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/aggrement_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingVertical="10dp">
+
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:padding="6dp"
+                        android:scaleType="centerInside"
+                        app:tint="@color/purple_500" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingHorizontal="16dp"
+                        android:text="Sözleşmeler"
+                        android:textColor="@color/black"
+                        android:textSize="14sp" />
+
+
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        app:tint="@color/gray_500" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,6 +5,7 @@ import static android.content.ContentValues.TAG;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -13,6 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
+import com.dodo.kanbagis.BaseFragment;
 import com.dodo.kanbagis.R;
 import com.dodo.kanbagis.adapter.BloodAdapter;
 import com.dodo.kanbagis.databinding.FragmentSecondBinding;
@@ -25,7 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class SecondFragment extends Fragment {
+public class SecondFragment extends BaseFragment {
 
     private FragmentSecondBinding binding;
     BloodAdapter bloodAdapter = new BloodAdapter();
@@ -40,6 +42,8 @@ public class SecondFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         binding.blondeList.setAdapter(bloodAdapter);
+        //initBottomMenu();
+        bindTo(binding.getRoot());
 
         DatabaseReference  mDatabase = FirebaseDatabase.getInstance().getReference().child("Blood");
         // Read from the database
@@ -63,9 +67,6 @@ public class SecondFragment extends Fragment {
                 Log.w(TAG, "Failed to read value.", error.toException());
             }
         });
-
-        binding.buttonSecond.setOnClickListener(view1 -> NavHostFragment.findNavController(SecondFragment.this)
-                .navigate(R.id.action_SecondFragment_to_FirstFragment));
     }
 
     @Override
@@ -73,5 +74,4 @@ public class SecondFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
-
 }

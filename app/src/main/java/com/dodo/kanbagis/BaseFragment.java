@@ -3,39 +3,95 @@ package com.dodo.kanbagis;
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
 
 import com.dodo.kanbagis.databinding.BottomBarBinding;
-import com.dodo.kanbagis.fragment.FirstFragment;
-import com.dodo.kanbagis.fragment.SecondFragment;
+import com.dodo.kanbagis.databinding.TopBarBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.io.FileDescriptor;
+import java.io.PrintWriter;
 
-public abstract class BaseFragment extends AppCompatActivity {
+
+public abstract class BaseFragment extends Fragment {
 
     BottomNavigationView bottomBar;
+    protected TopBarBinding topBarBinding;
     protected BottomBarBinding bottomBarBinding;
 
+    @Nullable
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        return super.onCreateView(inflater, container, savedInstanceState);
     }
 
-    protected void startActivity(Class<?> cls) {
-        startActivity(new Intent(this, cls));
-        overridePendingTransition(0, 0);
+    @Override
+    public void onStart() {
+        super.onStart();
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+    }
+
+    @Override
+    public void dump(@NonNull String prefix, @Nullable FileDescriptor fd, @NonNull PrintWriter writer, @Nullable String[] args) {
+        super.dump(prefix, fd, writer, args);
+    }
+
+
 
     protected void bindTo(@NonNull View root) {
         bottomBarBinding = BottomBarBinding.bind(root);
         initBottomMenu();
+        bindTopBar(root);
+    }
+
+    protected void bindTopBar(@NonNull View root) {
+        topBarBinding = TopBarBinding.bind(root);
+        initTopBar();
+    }
+
+    private void initTopBar() {
+        if (topBarBinding != null) {
+            topBarBinding.topBarBack.setOnClickListener(view -> onStop());
+        }
+    }
+
+    private void showTopBarBack() {
+        if (topBarBinding != null) {
+            topBarBinding.topBarBack.setVisibility(VISIBLE);
+        }
     }
 
     protected void hideBottomBar() {
@@ -48,28 +104,10 @@ public abstract class BaseFragment extends AppCompatActivity {
             bottomBarBinding.bottomNavigationView.setVisibility(VISIBLE);
     }
 
-    protected void onMenuReselected() {
-        finish();
-        overridePendingTransition(0, 0);
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        overridePendingTransition(0, 0);
-    }
-
-    protected void onTopBarBackPressed() {
-        finish();
-        overridePendingTransition(0, 0);
-    }
-
-
     private void initBottomMenu() {
         if (bottomBarBinding != null) {
 
             bottomBarBinding.bottomNavigationView.setItemIconTintList(null);
-            bottomBarBinding.bottomNavigationView.setOnItemReselectedListener(item -> onMenuReselected());
             bottomBarBinding.bottomNavigationView.setOnItemSelectedListener(item -> {
                 menuItemSelected(item);
                 return true;
@@ -78,7 +116,7 @@ public abstract class BaseFragment extends AppCompatActivity {
     }
 
     public void bottomBarSetup(int bottomItemView) {
-        bottomBar = findViewById(R.id.bottomNavigationView);
+        bottomBar = bottomBarBinding.bottomNavigationView;
         bottomBar.setItemIconTintList(null);
         bottomBar.setSelectedItemId(bottomItemView);
         bottomBar.setOnItemSelectedListener(item -> {
@@ -91,10 +129,16 @@ public abstract class BaseFragment extends AppCompatActivity {
         int itemId = item.getItemId();
         switch (itemId) {
             case R.id.action_home:
-                startActivity(SecondFragment.class);
+                NavHostFragment.findNavController(BaseFragment.this)
+                        .navigate(R.id.action_BaseFragment_to_SecondFragment);
                 break;
             case R.id.action_add:
-                startActivity(FirstFragment.class);
+                NavHostFragment.findNavController(BaseFragment.this)
+                        .navigate(R.id.action_BaseFragment_to_FirstFragment);
+                break;
+            case R.id.action_profile:
+                NavHostFragment.findNavController(BaseFragment.this)
+                        .navigate(R.id.action_BaseFragment_to_ProfileFragment);
                 break;
         }
     }
