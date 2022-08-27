@@ -8,9 +8,13 @@
     <string name="action_sign_in_short">Sign in</string>
     <string name="adress_text">Adress</string>
     <string name="app_name">KanBagis</string>
+    <string name="approve">Approve</string>
 
     <!-- B -->
+    <string name="blood_adress">Address to be given blood</string>
     <string name="blood_donation">Blood Donation</string>
+    <string name="blood_group">Blood Group</string>
+    <string name="blood_rh">Blood Rh</string>
     <string name="blood_request">Bağış taleplerim</string>
 
     <!-- F -->
@@ -32,7 +36,7 @@
 
     <!-- P -->
     <string name="phone_number">Phone Number</string>
-    <string name="Please_control_your_phone_number">Telefon numaranız başında 0 olmadan 10 karakter olmalıdır.</string>
+    <string name="Please_control_your_phone_number">Your phone number must be 10 characters without a leading 0.</string>
     <string name="Please_enter_your_address">Please enter your address.</string>
     <string name="Please_enter_your_blood_group">Please enter your blood group.</string>
     <string name="Please_enter_your_message">Please enter your message.</string>
@@ -47,6 +51,8 @@
 
     <!-- S -->
     <string name="second_fragment_label">Second Fragment</string>
+    <string name="success">Success!</string>
+    <string name="success_text">Your blood requirement has been successfully created.</string>
 
     <!-- W -->
     <string name="welcome">"Welcome!"</string>

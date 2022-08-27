@@ -7,10 +7,14 @@
     <string name="action_sign_in_short">Giriş</string>
     <string name="adress_text">Adres</string>
     <string name="app_name">KanBagis</string>
+    <string name="approve">Onayla</string>
 
     <!-- B -->
+    <string name="blood_adress">Kan verilecek adres</string>
     <string name="blood_donation">KAN BAĞIŞ</string>
+    <string name="blood_group">Kan Grubu</string>
     <string name="blood_request">Bağış taleplerim</string>
+    <string name="blood_rh">Kan Rh</string>
 
     <!-- F -->
     <string name="first_fragment_label">First Fragment</string>
@@ -46,7 +50,8 @@
 
     <!-- S -->
     <string name="second_fragment_label">İkinci Fragment</string>
-
+    <string name="success">Başarılı!</string>
+    <string name="success_text">Kan ihtiyacınız başarılı bir şekilde oluşturuldu.</string>
 
     <!-- W -->
     <string name="welcome">"Hoş geldiniz!"</string>
