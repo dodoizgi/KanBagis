@@ -6,6 +6,7 @@
     <string name="action_sign_in">Giriş ya da Kayıt ol</string>
     <string name="action_sign_in_short">Giriş</string>
     <string name="adress_text">Adres</string>
+    <string name="announcement_fragment_label">Announcement Fragment</string>
     <string name="app_name">KanBagis</string>
     <string name="approve">Onayla</string>
 
@@ -15,6 +16,9 @@
     <string name="blood_group">Kan Grubu</string>
     <string name="blood_request">Bağış taleplerim</string>
     <string name="blood_rh">Kan Rh</string>
+
+    <!-- C -->
+    <string name="continue_text">Devam et</string>
 
     <!-- F -->
     <string name="first_fragment_label">First Fragment</string>
@@ -49,7 +53,6 @@
     <string name="prompt_password">Şifre</string>
 
     <!-- S -->
-    <string name="second_fragment_label">İkinci Fragment</string>
     <string name="success">Başarılı!</string>
     <string name="success_text">Kan ihtiyacınız başarılı bir şekilde oluşturuldu.</string>
 
@@ -61,6 +64,7 @@
     <string name="signup_login_hint">Already have an account? Sign In</string>
     <string name="login_signup_hint">Don\'t have an account? Sign Up</string>
     <string name="register">REGISTER</string>
+    <string name="title_activity_login">LoginActivity</string>
 
 
 </resources>

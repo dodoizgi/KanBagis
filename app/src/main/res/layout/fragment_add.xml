@@ -101,6 +101,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="4dp"
+                    android:layout_marginStart="4dp"
                     android:textColorHint="@color/purple_500"
                     app:boxStrokeWidth="0dp"
                     app:boxStrokeWidthFocused="0dp">
@@ -125,6 +126,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginBottom="10dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
                 android:textColorHint="@color/purple_500"
                 app:boxStrokeWidth="0dp"
                 app:boxStrokeWidthFocused="0dp">
@@ -153,6 +156,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginBottom="10dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
                 android:textColorHint="@color/purple_500"
                 app:boxStrokeWidth="0dp"
                 app:boxStrokeWidthFocused="0dp">
@@ -214,7 +219,6 @@
             android:layout_height="200dp"
             android:layout_marginBottom="60dp"
             android:background="@drawable/check"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -245,7 +249,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
         <LinearLayout
-            android:id="@+id/linearLayout3"
+            android:id="@+id/addContinueButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="48dp"
@@ -260,7 +264,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_bold"
-                android:text="@string/approve"
+                android:text="@string/continue_text"
                 android:textColor="@color/whiteCardColor"
                 android:textSize="24sp" />
 

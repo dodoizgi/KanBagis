@@ -36,7 +36,7 @@
             android:layout_width="match_parent"
             android:layout_marginTop="@dimen/loginViewsMargin"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            app:boxStrokeColor="@color/black">
+            app:boxStrokeColor="@color/mtrl_til">
             <EditText
                 android:id="@+id/editTextEmail"
                 android:layout_height="wrap_content"
@@ -88,6 +88,7 @@
             android:layout_marginTop="@dimen/loginViewsMargin"/>
 
         <TextView
+            android:id="@+id/signUpButton"
             android:layout_height="match_parent"
             android:layout_width="match_parent"
             android:textAlignment="center"

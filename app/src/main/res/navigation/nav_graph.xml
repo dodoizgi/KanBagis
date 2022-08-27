@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/LoginFragment">
+    app:startDestination="@id/AdvertFragment">
 
     <fragment
         android:id="@+id/FirstFragment"
@@ -12,21 +12,11 @@
         tools:layout="@layout/fragment_add">
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.dodo.kanbagis.fragment.AdvertFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_advert">
+        android:id="@+id/AdvertFragment"
+        android:name="com.dodo.kanbagis.fragment.AnnouncementFragment"
+        android:label="@string/announcement_fragment_label"
+        tools:layout="@layout/fragment_announcement">
 
-    </fragment>
-    <fragment
-        android:id="@+id/LoginFragment"
-        android:name="com.dodo.kanbagis.fragment.ui.login.LoginFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_login">
-
-        <action
-            android:id="@+id/action_BaseFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
     </fragment>
     <fragment
         android:id="@+id/ProfileFragment"

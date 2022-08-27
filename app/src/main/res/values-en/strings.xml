@@ -7,6 +7,7 @@
     <string name="action_sign_in">Sign in or register</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="adress_text">Adress</string>
+    <string name="announcement_fragment_label">Announcement Fragment</string>
     <string name="app_name">KanBagis</string>
     <string name="approve">Approve</string>
 
@@ -16,6 +17,9 @@
     <string name="blood_group">Blood Group</string>
     <string name="blood_rh">Blood Rh</string>
     <string name="blood_request">Bağış taleplerim</string>
+
+    <!-- C -->
+    <string name="continue_text">Continue</string>
 
     <!-- F -->
     <string name="first_fragment_label">First Fragment</string>
@@ -50,7 +54,6 @@
     <string name="prompt_password">Password</string>
 
     <!-- S -->
-    <string name="second_fragment_label">Second Fragment</string>
     <string name="success">Success!</string>
     <string name="success_text">Your blood requirement has been successfully created.</string>
 

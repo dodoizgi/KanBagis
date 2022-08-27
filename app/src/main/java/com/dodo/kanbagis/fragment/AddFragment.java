@@ -53,6 +53,11 @@ public class AddFragment extends Fragment {
             binding.addBloodRh.showDropDown()
         );
 
+        binding.addContinueButton.setOnClickListener(view1 -> {
+            binding.addContainerLayout.setVisibility(View.VISIBLE);
+            binding.addSuccessContainerLayout.setVisibility(View.GONE);
+        });
+
         binding.addBloodGroup.setAdapter(bloodGroupAdapter);
         binding.addBloodRh.setAdapter(bloodRhAdapter);
         binding.approveButton.setOnClickListener(view1 -> {

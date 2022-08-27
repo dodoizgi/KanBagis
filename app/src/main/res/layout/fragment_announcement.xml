@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.AdvertFragment">
+    tools:context=".fragment.AnnouncementFragment">
 
     <include
         layout="@layout/top_bar"
@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/bottomNavigationView"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="70dp"
         android:layout_marginBottom="8dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"

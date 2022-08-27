@@ -44,6 +44,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    public void bada() {
+        binding.bottomNavigationView.setVisibility(View.GONE);
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

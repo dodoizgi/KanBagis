@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.dodo.kanbagis.adapter.BloodAdapter;
-import com.dodo.kanbagis.databinding.FragmentAdvertBinding;
+import com.dodo.kanbagis.databinding.FragmentAnnouncementBinding;
 import com.dodo.kanbagis.module.Blood;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -22,15 +22,15 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class AdvertFragment extends Fragment {
+public class AnnouncementFragment extends Fragment {
 
-    private FragmentAdvertBinding binding;
+    private FragmentAnnouncementBinding binding;
     BloodAdapter bloodAdapter = new BloodAdapter();
     private ArrayList<Blood> bloodArrayList = new ArrayList<>();
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        binding = FragmentAdvertBinding.inflate(inflater, container, false);
+        binding = FragmentAnnouncementBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
 
