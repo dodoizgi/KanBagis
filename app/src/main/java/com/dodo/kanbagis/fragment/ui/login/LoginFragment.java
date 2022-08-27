@@ -21,7 +21,6 @@ import android.widget.Toast;
 
 import com.dodo.kanbagis.R;
 import com.dodo.kanbagis.databinding.FragmentLoginBinding;
-import com.dodo.kanbagis.fragment.SecondFragment;
 
 
 public class LoginFragment extends Fragment {
@@ -75,7 +74,7 @@ public class LoginFragment extends Fragment {
             if (loginResult.getSuccess() != null) {
                 updateUiWithUser(loginResult.getSuccess());
                 NavHostFragment.findNavController(LoginFragment.this)
-                        .navigate(R.id.action_LoginFragment_to_SecondFragment);
+                        .navigate(R.id.action_BaseFragment_to_SecondFragment);
             }
         });
 

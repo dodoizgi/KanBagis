@@ -7,10 +7,18 @@
     tools:context=".fragment.ProfileFragment"
     android:background="@color/gray_200">
 
+    <include
+        layout="@layout/top_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ScrollView
         android:id="@+id/list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
+
         android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -85,12 +93,11 @@
                 <ImageView
                     android:layout_width="15dp"
                     android:layout_height="15dp"
-                    app:srcCompat="@drawable/ic_next_fill_vc"
                     app:tint="@color/gray_500" />
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/profile_my_address"
+                android:id="@+id/profile_my_blood_request"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -106,9 +113,9 @@
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
+                    android:background="@drawable/ic_bg_shapest"
                     android:padding="6dp"
                     android:scaleType="centerInside"
-                    android:background="@drawable/ic_bg_shapest"
                     app:srcCompat="@drawable/ic_baseline_toc_24"
 
                     app:tint="@color/purple_500" />
@@ -132,7 +139,7 @@
 
 
             <LinearLayout
-                android:id="@+id/profile_messsages"
+                android:id="@+id/profile_my_messsages"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -148,9 +155,9 @@
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
+                    android:background="@drawable/ic_bg_shapest"
                     android:padding="6dp"
                     android:scaleType="centerInside"
-                    android:background="@drawable/ic_bg_shapest"
                     app:srcCompat="@drawable/ic_message"
                     app:tint="@color/purple_500" />
 
@@ -186,10 +193,10 @@
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
+                    android:background="@drawable/ic_bg_shapest"
                     android:padding="6dp"
                     android:scaleType="centerInside"
                     app:srcCompat="@drawable/ic_account"
-                    android:background="@drawable/ic_bg_shapest"
                     app:tint="@color/purple_500" />
 
 
@@ -227,9 +234,9 @@
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
+                    android:background="@drawable/ic_bg_shapest"
                     android:padding="6dp"
                     android:scaleType="centerInside"
-                    android:background="@drawable/ic_bg_shapest"
                     app:srcCompat="@drawable/ic_help"
                     app:tint="@color/purple_500" />
 

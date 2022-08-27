@@ -73,7 +73,6 @@ public abstract class BaseFragment extends Fragment {
 
     protected void bindTo(@NonNull View root) {
         bottomBarBinding = BottomBarBinding.bind(root);
-        initBottomMenu();
         bindTopBar(root);
     }
 
@@ -103,44 +102,4 @@ public abstract class BaseFragment extends Fragment {
         if (bottomBarBinding != null)
             bottomBarBinding.bottomNavigationView.setVisibility(VISIBLE);
     }
-
-    private void initBottomMenu() {
-        if (bottomBarBinding != null) {
-
-            bottomBarBinding.bottomNavigationView.setItemIconTintList(null);
-            bottomBarBinding.bottomNavigationView.setOnItemSelectedListener(item -> {
-                menuItemSelected(item);
-                return true;
-            });
-        }
-    }
-
-    public void bottomBarSetup(int bottomItemView) {
-        bottomBar = bottomBarBinding.bottomNavigationView;
-        bottomBar.setItemIconTintList(null);
-        bottomBar.setSelectedItemId(bottomItemView);
-        bottomBar.setOnItemSelectedListener(item -> {
-            menuItemSelected(item);
-            return true;
-        });
-    }
-
-    public void menuItemSelected(MenuItem item) {
-        int itemId = item.getItemId();
-        switch (itemId) {
-            case R.id.action_home:
-                NavHostFragment.findNavController(BaseFragment.this)
-                        .navigate(R.id.action_BaseFragment_to_SecondFragment);
-                break;
-            case R.id.action_add:
-                NavHostFragment.findNavController(BaseFragment.this)
-                        .navigate(R.id.action_BaseFragment_to_FirstFragment);
-                break;
-            case R.id.action_profile:
-                NavHostFragment.findNavController(BaseFragment.this)
-                        .navigate(R.id.action_BaseFragment_to_ProfileFragment);
-                break;
-        }
-    }
-
 }

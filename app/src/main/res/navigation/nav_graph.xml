@@ -7,29 +7,16 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="com.dodo.kanbagis.fragment.FirstFragment"
+        android:name="com.dodo.kanbagis.fragment.AddFragment"
         android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
-
-        <action
-            android:id="@+id/action_BaseFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
-        <action
-            android:id="@+id/action_BaseFragment_to_ProfileFragment"
-            app:destination="@id/ProfileFragment" />
+        tools:layout="@layout/fragment_add">
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
-        android:name="com.dodo.kanbagis.fragment.SecondFragment"
+        android:name="com.dodo.kanbagis.fragment.AdvertFragment"
         android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
+        tools:layout="@layout/fragment_advert">
 
-        <action
-            android:id="@+id/action_BaseFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
-        <action
-            android:id="@+id/action_BaseFragment_to_ProfileFragment"
-            app:destination="@id/ProfileFragment" />
     </fragment>
     <fragment
         android:id="@+id/LoginFragment"
@@ -46,11 +33,5 @@
         android:name="com.dodo.kanbagis.fragment.ProfileFragment"
         android:label="@string/profile_fragment"
         tools:layout="@layout/fragment_profile">
-        <action
-            android:id="@+id/action_BaseFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
-        <action
-            android:id="@+id/action_BaseFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
     </fragment>
 </navigation>

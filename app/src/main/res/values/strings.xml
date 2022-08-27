@@ -5,6 +5,7 @@
     <string name="action_profile">Profil</string>
     <string name="action_sign_in">Giriş ya da Kayıt ol</string>
     <string name="action_sign_in_short">Giriş</string>
+    <string name="adress_text">Adres</string>
     <string name="app_name">KanBagis</string>
 
     <!-- B -->
@@ -29,6 +30,7 @@
     <string name="next">Next</string>
 
     <!-- P -->
+    <string name="phone_number">Telefon numarası</string>
     <string name="Please_enter_your_address">Lütfen adresinizi giriniz.</string>
     <string name="Please_enter_your_blood_group">Lütfen kan grubunuzu giriniz.</string>
     <string name="Please_enter_your_message">Lütfen mesajınızı giriniz.</string>
@@ -48,6 +50,12 @@
 
     <!-- W -->
     <string name="welcome">"Hoş geldiniz!"</string>
+
+    <string name="login_email_hint">Email</string>
+    <string name="login_password_hint">Password</string>
+    <string name="signup_login_hint">Already have an account? Sign In</string>
+    <string name="login_signup_hint">Don\'t have an account? Sign Up</string>
+    <string name="register">REGISTER</string>
 
 
 </resources>

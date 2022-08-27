@@ -6,6 +6,7 @@
     <string name="action_profile">Profile</string>
     <string name="action_sign_in">Sign in or register</string>
     <string name="action_sign_in_short">Sign in</string>
+    <string name="adress_text">Adress</string>
     <string name="app_name">KanBagis</string>
 
     <!-- B -->
@@ -30,6 +31,7 @@
     <string name="next">Next</string>
 
     <!-- P -->
+    <string name="phone_number">Phone Number</string>
     <string name="Please_control_your_phone_number">Telefon numaranız başında 0 olmadan 10 karakter olmalıdır.</string>
     <string name="Please_enter_your_address">Please enter your address.</string>
     <string name="Please_enter_your_blood_group">Please enter your blood group.</string>
@@ -48,5 +50,11 @@
 
     <!-- W -->
     <string name="welcome">"Welcome!"</string>
+
+    <string name="login_email_hint">Email</string>
+    <string name="login_password_hint">Password</string>
+    <string name="signup_login_hint">Already have an account? Sign In</string>
+    <string name="login_signup_hint">Don\'t have an account? Sign Up</string>
+    <string name="register">REGISTER</string>
 
 </resources>

@@ -1,24 +1,17 @@
 package com.dodo.kanbagis.fragment;
 
 import android.os.Bundle;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.dodo.kanbagis.BaseFragment;
-import com.dodo.kanbagis.R;
+import androidx.fragment.app.Fragment;
 
-public class ProfileFragment extends BaseFragment {
+import com.dodo.kanbagis.databinding.FragmentProfileBinding;
 
-    public ProfileFragment() {
-        // Required empty public constructor
-    }
+public class ProfileFragment extends Fragment {
 
-    public static ProfileFragment newInstance(String param1, String param2) {
-        ProfileFragment fragment = new ProfileFragment();
-        return fragment;
-    }
+    private FragmentProfileBinding binding;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -27,8 +20,14 @@ public class ProfileFragment extends BaseFragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_profile, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        binding = FragmentProfileBinding.inflate(inflater, container, false);
+        return binding.getRoot();
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
     }
 }
