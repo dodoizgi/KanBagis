@@ -45,7 +45,6 @@ public class AddFragment extends Fragment {
             String phone = binding.bloodPhoneText.getText().toString();
             String rh = binding.bloodRhText.getText().toString();
 
-
             if (isFormValid()) {
 
                 Blood blood = new Blood(adress,bloodGroup,messages,phone,rh);

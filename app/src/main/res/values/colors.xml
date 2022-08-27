@@ -19,6 +19,7 @@
     <color name="colorTransparent">#00ff6d00</color>
     <color name="colorone">#0E66B9</color>
     <color name="bottomSheetInActiveColor">#747474</color>
+    <color name="fuschia">#EC3B83</color>
 
     <color name="colorPrimary">#1F5BF3</color>
     <color name="colorPrimaryDark">#0947E8</color>

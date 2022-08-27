@@ -1,22 +1,19 @@
 package com.dodo.kanbagis.activity;
 
 import android.os.Bundle;
-
-import com.dodo.kanbagis.R;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.snackbar.Snackbar;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.dodo.kanbagis.R;
 import com.dodo.kanbagis.databinding.ActivityMainBinding;
-
-import android.view.Menu;
-import android.view.MenuItem;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,12 +31,17 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         NavigationUI.setupWithNavController(bottomNavigationView, navController);
 
-
-        /*appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);*/
-
-        binding.fab.setOnClickListener(view -> Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show());
+        binding.getRoot().getViewTreeObserver().addOnGlobalLayoutListener(() -> {
+            binding.getRoot();
+            int heightDiff = binding.getRoot().getRootView().getHeight() - binding.getRoot().getHeight();
+            if (heightDiff > 200) {
+                //keyboard is open, hide layout
+                binding.bottomNavigationView.setVisibility(View.GONE);
+            } else {
+                //keyboard is hidden, show layout
+                binding.bottomNavigationView.setVisibility(View.VISIBLE);
+            }
+        });
     }
 
     @Override
