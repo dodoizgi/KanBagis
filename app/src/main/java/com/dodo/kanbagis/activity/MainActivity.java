@@ -6,6 +6,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.splashscreen.SplashScreen;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -63,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
        
         //noinspection SimplifiableIfStatement
-        if (id == R.id.SecondFragment) {
+        if (id == R.id.AnnouncementFragment) {
             return true;
         }
 

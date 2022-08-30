@@ -87,8 +87,17 @@ public class AddFragment extends Fragment {
             mDatabase.child("Blood").child(Objects.requireNonNull(mDatabase.push().getKey())).setValue(blood);
             binding.addContainerLayout.setVisibility(View.GONE);
             binding.addSuccessContainerLayout.setVisibility(View.VISIBLE);
+            clearText();
         }
 
+    }
+
+    private void clearText() {
+        Objects.requireNonNull(binding.addAddress.getText()).clear();
+        Objects.requireNonNull(binding.addBloodGroup.getText()).clear();
+        Objects.requireNonNull(binding.addMessage.getText()).clear();
+        Objects.requireNonNull(binding.addPhone.getText()).clear();
+        Objects.requireNonNull(binding.addBloodRh.getText()).clear();
     }
 
     private boolean isFormValid() {
