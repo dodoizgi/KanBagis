@@ -1,5 +1,6 @@
 <resources>
     <!-- A -->
+    <string name="account_fragment">Account Fragment</string>
     <string name="action_add">Ekle</string>
     <string name="action_homepage">Anasayfa</string>
     <string name="action_profile">Profil</string>
@@ -34,6 +35,10 @@
     <!-- L -->
     <string name="login_failed">Giriş hatası</string>
 
+    <!-- M -->
+    <string name="message_fragment">Message Fragment</string>
+    <string name="my_donation_fragment">My Donation Fragment</string>
+
     <!-- N -->
     <string name="next">Next</string>
 
@@ -53,6 +58,7 @@
     <string name="prompt_password">Şifre</string>
 
     <!-- S -->
+    <string name="setting_fragment">Setting Fragment</string>
     <string name="success">Başarılı!</string>
     <string name="success_text">Kan ihtiyacınız başarılı bir şekilde oluşturuldu.</string>
 
@@ -67,6 +73,8 @@
     <string name="title_activity_login">LoginActivity</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="todo">TODO</string>
+    <string name="user_name">...</string>
 
 
 </resources>

@@ -20,11 +20,51 @@
         tools:layout="@layout/fragment_add">
     </fragment>
 
-    <fragment
-        android:id="@+id/ProfileFragment"
-        android:name="com.dodo.kanbagis.fragment.ProfileFragment"
-        android:label="@string/profile_fragment"
-        tools:layout="@layout/fragment_profile">
-    </fragment>
+    <navigation android:id="@+id/ProfileNavigation"
+        app:startDestination="@id/ProfileFragment">
+        <fragment
+            android:id="@+id/ProfileFragment"
+            android:name="com.dodo.kanbagis.fragment.ProfileFragment"
+            android:label="@string/profile_fragment"
+            tools:layout="@layout/fragment_profile">
+            <action
+                android:id="@+id/action_ProfileFragment_to_SettingsFragment"
+                app:destination="@id/SettingsFragment" />
+            <action
+                android:id="@+id/action_ProfileFragment_to_MessageFragment"
+                app:destination="@id/MessageFragment" />
+            <action
+                android:id="@+id/action_ProfileFragment_to_AccountFragment"
+                app:destination="@id/AccountFragment" />
+            <action
+                android:id="@+id/action_ProfileFragment_to_MyDonationFragment"
+                app:destination="@id/MyDonationFragment" />
+        </fragment>
+
+        <fragment
+            android:id="@+id/AccountFragment"
+            android:name="com.dodo.kanbagis.fragment.AddFragment"
+            android:label="@string/account_fragment"
+            tools:layout="@layout/fragment_account"/>
+
+        <fragment
+            android:id="@+id/MessageFragment"
+            android:name="com.dodo.kanbagis.fragment.AddFragment"
+            android:label="@string/message_fragment"
+            tools:layout="@layout/fragment_messages"/>
+
+        <fragment
+            android:id="@+id/SettingsFragment"
+            android:name="com.dodo.kanbagis.fragment.AddFragment"
+            android:label="@string/setting_fragment"
+            tools:layout="@layout/fragment_settings"/>
+
+        <fragment
+            android:id="@+id/MyDonationFragment"
+            android:name="com.dodo.kanbagis.fragment.AddFragment"
+            android:label="@string/setting_fragment"
+            tools:layout="@layout/fragment_my_donation_bloods"/>
+
+    </navigation>
 
 </navigation>

@@ -1,6 +1,7 @@
 <resources>
 
     <!-- A -->
+    <string name="account_fragment">Account Fragment</string>
     <string name="action_add">Add</string>
     <string name="action_homepage">Home Page</string>
     <string name="action_profile">Profile</string>
@@ -35,6 +36,10 @@
     <!-- L -->
     <string name="login_failed">"Login failed"</string>
 
+    <!-- M -->
+    <string name="message_fragment">Message Fragment</string>
+    <string name="my_donation_fragment">My Donation Fragment</string>
+
     <!-- N -->
     <string name="next">Next</string>
 
@@ -54,6 +59,7 @@
     <string name="prompt_password">Password</string>
 
     <!-- S -->
+    <string name="setting_fragment">Setting Fragment</string>
     <string name="success">Success!</string>
     <string name="success_text">Your blood requirement has been successfully created.</string>
 
@@ -65,5 +71,7 @@
     <string name="signup_login_hint">Already have an account? Sign In</string>
     <string name="login_signup_hint">Don\'t have an account? Sign Up</string>
     <string name="register">REGISTER</string>
+    <string name="todo">TODO</string>
+    <string name="user_name">...</string>
 
 </resources>
