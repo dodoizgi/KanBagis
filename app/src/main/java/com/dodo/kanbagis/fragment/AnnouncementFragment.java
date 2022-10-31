@@ -1,11 +1,7 @@
 package com.dodo.kanbagis.fragment;
 
-import static android.content.ContentValues.TAG;
-
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,25 +9,24 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import com.dodo.kanbagis.activity.LoginActivity;
-import com.dodo.kanbagis.activity.MainActivity;
-import com.dodo.kanbagis.activity.SplashActivity;
+import com.dodo.kanbagis.API.ApiClient;
+import com.dodo.kanbagis.API.ServiceAPI;
+import com.dodo.kanbagis.API.response.advertApi;
 import com.dodo.kanbagis.adapter.BloodAdapter;
 import com.dodo.kanbagis.databinding.FragmentAnnouncementBinding;
-import com.dodo.kanbagis.module.Blood;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class AnnouncementFragment extends Fragment {
 
     private FragmentAnnouncementBinding binding;
     BloodAdapter bloodAdapter = new BloodAdapter();
-    private ArrayList<Blood> bloodArrayList = new ArrayList<>();
+    private List<advertApi> bloodArrayList = new ArrayList<>();
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -53,28 +48,22 @@ public class AnnouncementFragment extends Fragment {
 
     private void pushAndRefresh() {
         new Handler().postDelayed(() -> {
-
-            DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference().child("Blood");
+            ServiceAPI serviceAPI = ApiClient.getRetrofit().create(ServiceAPI.class);
+            Call<List<advertApi>> call = serviceAPI.getAllAdverts();
             bloodArrayList.clear();
-            // Read from the database
-            mDatabase.addValueEventListener(new ValueEventListener() {
+            call.enqueue(new Callback<List<advertApi>>() {
                 @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    // This method is called once with the initial value and again
-                    // whenever data at this location is updated.
-                    for (DataSnapshot templateSnapshot : dataSnapshot.getChildren()) {
-                        Blood blood = templateSnapshot.getValue(Blood.class);
-                        if (blood != null) {
-                            bloodArrayList.add(blood);
-                        }
-                    }
+                public void onResponse(Call<List<advertApi>> call, Response<List<advertApi>> response) {
+                    if (!response.isSuccessful())
+                        return;
+
+                    bloodArrayList = response.body();
                     bloodAdapter.changeAll(bloodArrayList);
                 }
 
                 @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-                    // Failed to read value
-                    Log.w(TAG, "Failed to read value.", error.toException());
+                public void onFailure(Call<List<advertApi>> call, Throwable t) {
+                    System.out.println("fail : " + t);
                 }
             });
         },1000);

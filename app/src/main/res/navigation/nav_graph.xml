@@ -43,25 +43,25 @@
 
         <fragment
             android:id="@+id/AccountFragment"
-            android:name="com.dodo.kanbagis.fragment.AddFragment"
+            android:name="com.dodo.kanbagis.fragment.AccountFragment"
             android:label="@string/account_fragment"
             tools:layout="@layout/fragment_account"/>
 
         <fragment
             android:id="@+id/MessageFragment"
-            android:name="com.dodo.kanbagis.fragment.AddFragment"
+            android:name="com.dodo.kanbagis.fragment.MessagesFragment"
             android:label="@string/message_fragment"
             tools:layout="@layout/fragment_messages"/>
 
         <fragment
             android:id="@+id/SettingsFragment"
-            android:name="com.dodo.kanbagis.fragment.AddFragment"
+            android:name="com.dodo.kanbagis.fragment.SettingsFragment"
             android:label="@string/setting_fragment"
             tools:layout="@layout/fragment_settings"/>
 
         <fragment
             android:id="@+id/MyDonationFragment"
-            android:name="com.dodo.kanbagis.fragment.AddFragment"
+            android:name="com.dodo.kanbagis.fragment.MyDonationBloodsFragment"
             android:label="@string/setting_fragment"
             tools:layout="@layout/fragment_my_donation_bloods"/>
 
