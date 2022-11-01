@@ -6,17 +6,16 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import com.dodo.kanbagis.API.response.advertApi;
+import com.dodo.kanbagis.API.response.Advert;
 
 import com.dodo.kanbagis.databinding.BlondeItemBinding;
-import com.dodo.kanbagis.module.Blood;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class BloodAdapter extends RecyclerView.Adapter<BloodAdapter.ViewHolder> {
 
-    private final List<advertApi> list = new ArrayList<>();
+    private final List<Advert> list = new ArrayList<>();
 
     public BloodAdapter() {
     }
@@ -33,7 +32,7 @@ public class BloodAdapter extends RecyclerView.Adapter<BloodAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        advertApi blood = list.get(position);
+        Advert blood = list.get(position);
 
         String bloodGroup = blood.getBloodGroup() + " Rh" + blood.getRh();
         holder.binding.blondeGroup.setText(bloodGroup);
@@ -58,7 +57,7 @@ public class BloodAdapter extends RecyclerView.Adapter<BloodAdapter.ViewHolder> 
         }
     }
 
-    public void changeAll(List<advertApi> data) {
+    public void changeAll(List<Advert> data) {
         list.clear();
         list.addAll(data);
         notifyDataSetChanged();

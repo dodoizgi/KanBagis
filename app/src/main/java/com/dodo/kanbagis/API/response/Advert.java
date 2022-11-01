@@ -3,7 +3,7 @@ package com.dodo.kanbagis.API.response;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class advertApi {
+public class Advert {
 
     @SerializedName("id")
     @Expose
@@ -23,6 +23,15 @@ public class advertApi {
     @SerializedName("phone")
     @Expose
     private String phone;
+
+    public Advert(Integer id, String adress, String bloodGroup, String messages, String phone, String rh) {
+        this.id = id;
+        this.adress = adress;
+        this.bloodGroup = bloodGroup;
+        this.messages = messages;
+        this.phone = phone;
+        this.rh = rh;
+    }
 
     public Integer getId() {
         return id;

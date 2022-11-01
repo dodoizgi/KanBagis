@@ -1,6 +1,7 @@
 package com.dodo.kanbagis.fragment;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,9 @@ import android.widget.ArrayAdapter;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.dodo.kanbagis.API.ApiClient;
+import com.dodo.kanbagis.API.ServiceAPI;
+import com.dodo.kanbagis.API.response.Advert;
 import com.dodo.kanbagis.R;
 import com.dodo.kanbagis.databinding.FragmentAddBinding;
 import com.dodo.kanbagis.module.Blood;
@@ -17,6 +21,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Objects;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class AddFragment extends Fragment {
 
@@ -83,11 +93,30 @@ public class AddFragment extends Fragment {
         String rh = binding.addBloodRh.getText().toString();
 
         if (isFormValid()) {
-            Blood blood = new Blood(adress,bloodGroup,messages,phone,rh);
-            mDatabase.child("Blood").child(Objects.requireNonNull(mDatabase.push().getKey())).setValue(blood);
-            binding.addContainerLayout.setVisibility(View.GONE);
-            binding.addSuccessContainerLayout.setVisibility(View.VISIBLE);
-            clearText();
+            Advert advert = new Advert(1,adress,bloodGroup,messages,phone,rh);
+
+            ServiceAPI serviceAPI = ApiClient.getRetrofit().create(ServiceAPI.class);
+            Call<Advert> call = serviceAPI.postAdvert(advert);
+            call.enqueue(new Callback<Advert>() {
+                @Override
+                public void onResponse(Call<Advert> call, Response<Advert> response) {
+                    if (!response.isSuccessful())
+                        return;
+
+                    binding.addContainerLayout.setVisibility(View.GONE);
+                    binding.addSuccessContainerLayout.setVisibility(View.VISIBLE);
+                    clearText();
+                }
+
+                @Override
+                public void onFailure(Call<Advert> call, Throwable t) {
+                    binding.addContainerLayout.setVisibility(View.GONE);
+                    binding.addFailContainerLayout.setVisibility(View.VISIBLE);
+                    System.out.println("fail : " + t);
+                }
+            });
+
+
         }
 
     }

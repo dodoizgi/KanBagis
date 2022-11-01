@@ -38,6 +38,7 @@ public class StringUtils {
     public static boolean isBlood(String str) {
         return str.equalsIgnoreCase("A") || str.equalsIgnoreCase("a") ||
                 str.equalsIgnoreCase("b") || str.equalsIgnoreCase("B") ||
+                str.equalsIgnoreCase("AB") || str.equalsIgnoreCase("ab") ||
                 str.equalsIgnoreCase("0");
     }
 

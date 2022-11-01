@@ -22,6 +22,7 @@
     <string name="continue_text">Devam et</string>
 
     <!-- F -->
+    <string name="fail">Hata!</string>
     <string name="first_fragment_label">First Fragment</string>
 
     <!-- H -->

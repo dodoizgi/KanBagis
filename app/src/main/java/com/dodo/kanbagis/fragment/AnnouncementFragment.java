@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment;
 
 import com.dodo.kanbagis.API.ApiClient;
 import com.dodo.kanbagis.API.ServiceAPI;
-import com.dodo.kanbagis.API.response.advertApi;
+import com.dodo.kanbagis.API.response.Advert;
 import com.dodo.kanbagis.adapter.BloodAdapter;
 import com.dodo.kanbagis.databinding.FragmentAnnouncementBinding;
 
@@ -26,7 +26,7 @@ public class AnnouncementFragment extends Fragment {
 
     private FragmentAnnouncementBinding binding;
     BloodAdapter bloodAdapter = new BloodAdapter();
-    private List<advertApi> bloodArrayList = new ArrayList<>();
+    private List<Advert> bloodArrayList = new ArrayList<>();
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -49,11 +49,11 @@ public class AnnouncementFragment extends Fragment {
     private void pushAndRefresh() {
         new Handler().postDelayed(() -> {
             ServiceAPI serviceAPI = ApiClient.getRetrofit().create(ServiceAPI.class);
-            Call<List<advertApi>> call = serviceAPI.getAllAdverts();
+            Call<List<Advert>> call = serviceAPI.getAllAdverts();
             bloodArrayList.clear();
-            call.enqueue(new Callback<List<advertApi>>() {
+            call.enqueue(new Callback<List<Advert>>() {
                 @Override
-                public void onResponse(Call<List<advertApi>> call, Response<List<advertApi>> response) {
+                public void onResponse(Call<List<Advert>> call, Response<List<Advert>> response) {
                     if (!response.isSuccessful())
                         return;
 
@@ -62,7 +62,7 @@ public class AnnouncementFragment extends Fragment {
                 }
 
                 @Override
-                public void onFailure(Call<List<advertApi>> call, Throwable t) {
+                public void onFailure(Call<List<Advert>> call, Throwable t) {
                     System.out.println("fail : " + t);
                 }
             });

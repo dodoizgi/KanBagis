@@ -23,6 +23,7 @@
     <string name="continue_text">Continue</string>
 
     <!-- F -->
+    <string name="fail">Fail!</string>
     <string name="first_fragment_label">First Fragment</string>
 
     <!-- H -->
