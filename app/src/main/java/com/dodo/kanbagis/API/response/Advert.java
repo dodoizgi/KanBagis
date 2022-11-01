@@ -24,8 +24,7 @@ public class Advert {
     @Expose
     private String phone;
 
-    public Advert(Integer id, String adress, String bloodGroup, String messages, String phone, String rh) {
-        this.id = id;
+    public Advert(String adress, String bloodGroup, String messages, String phone, String rh) {
         this.adress = adress;
         this.bloodGroup = bloodGroup;
         this.messages = messages;

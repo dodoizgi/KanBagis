@@ -18,6 +18,9 @@
         android:name="com.dodo.kanbagis.fragment.AddFragment"
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_add">
+        <action
+            android:id="@+id/action_AddFragment_to_AnnouncementFragment"
+            app:destination="@id/AnnouncementFragment" />
     </fragment>
 
     <navigation android:id="@+id/ProfileNavigation"

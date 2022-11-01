@@ -9,6 +9,9 @@ import android.widget.ArrayAdapter;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.NavDirections;
+import androidx.navigation.Navigation;
 
 import com.dodo.kanbagis.API.ApiClient;
 import com.dodo.kanbagis.API.ServiceAPI;
@@ -37,6 +40,7 @@ public class AddFragment extends Fragment {
     private static final String[] BloodRh = new String[]{
             "+", "-"
     };
+    private NavController navController;
 
     @Override
     public View onCreateView(
@@ -51,6 +55,7 @@ public class AddFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        navController = Navigation.findNavController(view);
 
         ArrayAdapter<String> bloodGroupAdapter = new ArrayAdapter<String>(requireContext(), R.layout.blonde_list_item, BloodGroup);
         ArrayAdapter<String> bloodRhAdapter = new ArrayAdapter<String>(requireContext(), R.layout.blonde_list_item, BloodRh);
@@ -93,8 +98,7 @@ public class AddFragment extends Fragment {
         String rh = binding.addBloodRh.getText().toString();
 
         if (isFormValid()) {
-            Advert advert = new Advert(1,adress,bloodGroup,messages,phone,rh);
-
+            Advert advert = new Advert(adress,bloodGroup,messages,phone,rh);
             ServiceAPI serviceAPI = ApiClient.getRetrofit().create(ServiceAPI.class);
             Call<Advert> call = serviceAPI.postAdvert(advert);
             call.enqueue(new Callback<Advert>() {
@@ -106,19 +110,16 @@ public class AddFragment extends Fragment {
                     binding.addContainerLayout.setVisibility(View.GONE);
                     binding.addSuccessContainerLayout.setVisibility(View.VISIBLE);
                     clearText();
+                    navController.navigate(R.id.action_AddFragment_to_AnnouncementFragment);
                 }
 
                 @Override
                 public void onFailure(Call<Advert> call, Throwable t) {
                     binding.addContainerLayout.setVisibility(View.GONE);
                     binding.addFailContainerLayout.setVisibility(View.VISIBLE);
-                    System.out.println("fail : " + t);
                 }
             });
-
-
         }
-
     }
 
     private void clearText() {

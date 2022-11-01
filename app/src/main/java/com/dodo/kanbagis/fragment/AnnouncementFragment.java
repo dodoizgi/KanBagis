@@ -50,13 +50,13 @@ public class AnnouncementFragment extends Fragment {
         new Handler().postDelayed(() -> {
             ServiceAPI serviceAPI = ApiClient.getRetrofit().create(ServiceAPI.class);
             Call<List<Advert>> call = serviceAPI.getAllAdverts();
-            bloodArrayList.clear();
             call.enqueue(new Callback<List<Advert>>() {
                 @Override
                 public void onResponse(Call<List<Advert>> call, Response<List<Advert>> response) {
                     if (!response.isSuccessful())
                         return;
 
+                    bloodArrayList.clear();
                     bloodArrayList = response.body();
                     bloodAdapter.changeAll(bloodArrayList);
                 }
