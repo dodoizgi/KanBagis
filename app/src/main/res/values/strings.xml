@@ -20,6 +20,7 @@
 
     <!-- C -->
     <string name="continue_text">Devam et</string>
+    <string name="control_error">Girdiğiniz bilgileri kontrol ediniz.</string>
 
     <!-- F -->
     <string name="fail">Hata!</string>

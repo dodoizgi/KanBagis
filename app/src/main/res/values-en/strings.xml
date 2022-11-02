@@ -21,6 +21,7 @@
 
     <!-- C -->
     <string name="continue_text">Continue</string>
+    <string name="control_error">Check the information you entered.</string>
 
     <!-- F -->
     <string name="fail">Fail!</string>

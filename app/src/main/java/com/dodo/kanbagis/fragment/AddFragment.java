@@ -1,7 +1,6 @@
 package com.dodo.kanbagis.fragment;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +9,6 @@ import android.widget.ArrayAdapter;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
-import androidx.navigation.NavDirections;
 import androidx.navigation.Navigation;
 
 import com.dodo.kanbagis.API.ApiClient;
@@ -18,18 +16,13 @@ import com.dodo.kanbagis.API.ServiceAPI;
 import com.dodo.kanbagis.API.response.Advert;
 import com.dodo.kanbagis.R;
 import com.dodo.kanbagis.databinding.FragmentAddBinding;
-import com.dodo.kanbagis.module.Blood;
 import com.dodo.kanbagis.utils.Validator;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class AddFragment extends Fragment {
 
@@ -88,9 +81,6 @@ public class AddFragment extends Fragment {
     }
 
     private void pushData() {
-        // Write a message to the database
-        DatabaseReference  mDatabase = FirebaseDatabase.getInstance().getReference();
-
         String adress = Objects.requireNonNull(binding.addAddress.getText()).toString();
         String bloodGroup = binding.addBloodGroup.getText().toString();
         String messages = Objects.requireNonNull(binding.addMessage.getText()).toString();
