@@ -12,6 +12,7 @@ import com.dodo.kanbagis.API.ServiceAPI;
 import com.dodo.kanbagis.API.response.User;
 import com.dodo.kanbagis.R;
 import com.dodo.kanbagis.databinding.ActivityLoginBinding;
+import com.dodo.kanbagis.utils.Prefs;
 
 import java.util.List;
 
@@ -42,6 +43,12 @@ public class LoginActivity extends AppCompatActivity {
     public void onStart() {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
+        /*
+        Prefs.put("loggedin", true);
+        Prefs.put("accountType", res.accountType.type);
+        Prefs.put("token", res.token);
+        init(res);
+        */
     }
 
     private void logIn() {
@@ -63,6 +70,7 @@ public class LoginActivity extends AppCompatActivity {
                     return;
                 }
 
+                Prefs.put("loggedin", true);
                 Intent myIntent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(myIntent);
                 finish();
