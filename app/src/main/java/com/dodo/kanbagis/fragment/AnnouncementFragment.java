@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment;
 import com.dodo.kanbagis.API.ApiClient;
 import com.dodo.kanbagis.API.ServiceAPI;
 import com.dodo.kanbagis.API.response.Advert;
-import com.dodo.kanbagis.adapter.BloodAdapter;
+import com.dodo.kanbagis.adapter.AdvertAdapter;
 import com.dodo.kanbagis.databinding.FragmentAnnouncementBinding;
 
 import java.util.ArrayList;
@@ -25,8 +25,8 @@ import retrofit2.Response;
 public class AnnouncementFragment extends Fragment {
 
     private FragmentAnnouncementBinding binding;
-    BloodAdapter bloodAdapter = new BloodAdapter();
-    private List<Advert> bloodArrayList = new ArrayList<>();
+    AdvertAdapter advertAdapter = new AdvertAdapter();
+    private List<Advert> advertList = new ArrayList<>();
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -36,7 +36,7 @@ public class AnnouncementFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        binding.blondeList.setAdapter(bloodAdapter);
+        binding.blondeList.setAdapter(advertAdapter);
         pushAndRefresh();
     }
 
@@ -56,9 +56,9 @@ public class AnnouncementFragment extends Fragment {
                     if (!response.isSuccessful())
                         return;
 
-                    bloodArrayList.clear();
-                    bloodArrayList = response.body();
-                    bloodAdapter.changeAll(bloodArrayList);
+                    advertList.clear();
+                    advertList = response.body();
+                    advertAdapter.changeAll(advertList);
                 }
 
                 @Override

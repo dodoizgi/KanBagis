@@ -8,7 +8,6 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
-import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
@@ -35,6 +34,9 @@ public interface ServiceAPI {
 
     @GET("user/login")
     Call<List<User>>getUserByMailAndPassword(@Query("mail") String mail, @Query("password") String password);
+
+    @GET("user/adverts")
+    Call<List<Advert>>getAdvertsByUserId(@Query("id") String id);
 
     @POST("user")
     Call<User> postUser(@Body User user);

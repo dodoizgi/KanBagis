@@ -1,17 +1,21 @@
-package com.dodo.kanbagis.activity;
+package com.dodo.kanbagis.fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import com.dodo.kanbagis.API.ApiClient;
 import com.dodo.kanbagis.API.ServiceAPI;
 import com.dodo.kanbagis.API.response.User;
 import com.dodo.kanbagis.R;
-import com.dodo.kanbagis.databinding.ActivityLoginBinding;
+import com.dodo.kanbagis.databinding.FragmentLoginBinding;
 import com.dodo.kanbagis.utils.Prefs;
 
 import java.util.List;
@@ -20,35 +24,26 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+public class LoginFragment extends Fragment {
 
-public class LoginActivity extends AppCompatActivity {
-
-    private ActivityLoginBinding binding;
+    private FragmentLoginBinding binding;
+    private NavController navController;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        binding = FragmentLoginBinding.inflate(inflater, container, false);
+        return binding.getRoot();
+    }
 
-        binding = ActivityLoginBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        navController = Navigation.findNavController(view);
 
         binding.loginLayout.signUpButton.setOnClickListener(v -> binding.vf.setDisplayedChild(1));
         binding.registerLayout.signInButton.setOnClickListener(v -> binding.vf.setDisplayedChild(0));
 
         binding.loginLayout.cirLoginButton.setOnClickListener(v -> logIn());
         binding.registerLayout.registerButton.setOnClickListener(v -> signUp());
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        /*
-        Prefs.put("loggedin", true);
-        Prefs.put("accountType", res.accountType.type);
-        Prefs.put("token", res.token);
-        init(res);
-        */
     }
 
     private void logIn() {
@@ -71,9 +66,8 @@ public class LoginActivity extends AppCompatActivity {
                 }
 
                 Prefs.put("loggedin", true);
-                Intent myIntent = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(myIntent);
-                finish();
+                navController.navigate(R.id.action_LoginFragment_to_AnnouncementFragment);
+
             }
 
             @Override
@@ -102,9 +96,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (!response.isSuccessful())
                     return;
 
-                Intent myIntent = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(myIntent);
-                finish();
+                navController.navigate(R.id.action_LoginFragment_to_AnnouncementFragment);
             }
 
             @Override
@@ -116,6 +108,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void showLoginFailed() {
-        Toast.makeText(getApplicationContext(), R.string.control_error, Toast.LENGTH_LONG).show();
+        Toast.makeText(getContext(), R.string.control_error, Toast.LENGTH_LONG).show();
     }
 }

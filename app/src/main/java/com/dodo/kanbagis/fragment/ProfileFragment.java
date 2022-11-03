@@ -10,6 +10,7 @@ import androidx.navigation.Navigation;
 
 import com.dodo.kanbagis.R;
 import com.dodo.kanbagis.databinding.FragmentProfileBinding;
+import com.dodo.kanbagis.utils.Prefs;
 
 public class ProfileFragment extends Fragment {
 
@@ -37,6 +38,9 @@ public class ProfileFragment extends Fragment {
         binding.profileMyAccount.setOnClickListener(view -> Navigation.findNavController(view).navigate(R.id.action_ProfileFragment_to_AccountFragment));
         binding.profileMyMesssages.setOnClickListener(view -> Navigation.findNavController(view).navigate(R.id.action_ProfileFragment_to_MessageFragment));
         binding.profileMyBloodRequest.setOnClickListener(view -> Navigation.findNavController(view).navigate(R.id.action_ProfileFragment_to_MyDonationFragment));
-        binding.profileMySettings.setOnClickListener(view -> Navigation.findNavController(view).navigate(R.id.action_ProfileFragment_to_SettingsFragment));
+        binding.profileMySettings.setOnClickListener(view -> {
+            Prefs.clearAll();
+            Navigation.findNavController(view).navigate(R.id.action_ProfileFragment_to_LoginFragment);
+        });
     }
 }

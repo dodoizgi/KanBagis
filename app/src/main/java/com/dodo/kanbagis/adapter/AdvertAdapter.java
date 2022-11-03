@@ -8,16 +8,16 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.dodo.kanbagis.API.response.Advert;
 
-import com.dodo.kanbagis.databinding.BlondeItemBinding;
+import com.dodo.kanbagis.databinding.AdvertItemBinding;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class BloodAdapter extends RecyclerView.Adapter<BloodAdapter.ViewHolder> {
+public class AdvertAdapter extends RecyclerView.Adapter<AdvertAdapter.ViewHolder> {
 
     private final List<Advert> list = new ArrayList<>();
 
-    public BloodAdapter() {
+    public AdvertAdapter() {
     }
 
     @NonNull
@@ -26,20 +26,20 @@ public class BloodAdapter extends RecyclerView.Adapter<BloodAdapter.ViewHolder> 
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
 
-        BlondeItemBinding binding = BlondeItemBinding.inflate(inflater, parent, false);
+        AdvertItemBinding binding = AdvertItemBinding.inflate(inflater, parent, false);
         return new ViewHolder(binding);
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Advert blood = list.get(position);
+        Advert advert = list.get(position);
 
-        String bloodGroup = blood.getBloodGroup() + " Rh" + blood.getRh();
+        String bloodGroup = advert.getBloodGroup() + " " + advert.getRh();
         holder.binding.blondeGroup.setText(bloodGroup);
 
-        holder.binding.blondeMessage.setText(blood.getMessages());
-        holder.binding.blondeAdressDetail.setText(blood.getAdress());
-        holder.binding.blondePhone.setText(blood.getPhone());
+        holder.binding.blondeMessage.setText(advert.getMessages());
+        holder.binding.blondeAdressDetail.setText(advert.getAdress());
+        holder.binding.blondePhone.setText(advert.getPhone());
     }
 
     @Override
@@ -49,9 +49,9 @@ public class BloodAdapter extends RecyclerView.Adapter<BloodAdapter.ViewHolder> 
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        public BlondeItemBinding binding;
+        public AdvertItemBinding binding;
 
-        public ViewHolder(BlondeItemBinding bindTo) {
+        public ViewHolder(AdvertItemBinding bindTo) {
             super(bindTo.getRoot());
             binding = bindTo;
         }

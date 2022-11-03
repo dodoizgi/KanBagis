@@ -14,6 +14,8 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 @Data
+@Getter
+@Setter
 public class Advert {
 
     @SerializedName("id")
