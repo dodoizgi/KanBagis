@@ -30,6 +30,8 @@
         <entry key="..\:/Users/DODO/KanBagis/app/src/main/res/layout/activity_login.xml" value="0.27906976744186046" />
         <entry key="..\:/Users/DODO/KanBagis/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/DODO/KanBagis/app/src/main/res/layout/activity_splash.xml" value="0.3482789855072464" />
+        <entry key="..\:/Users/DODO/KanBagis/app/src/main/res/layout/advert_item.xml" value="0.3229166666666667" />
+        <entry key="..\:/Users/DODO/KanBagis/app/src/main/res/layout/advert_popup.xml" value="0.25" />
         <entry key="..\:/Users/DODO/KanBagis/app/src/main/res/layout/blonde_item.xml" value="0.33" />
         <entry key="..\:/Users/DODO/KanBagis/app/src/main/res/layout/blonde_list_item.xml" value="0.22381930184804927" />
         <entry key="..\:/Users/DODO/KanBagis/app/src/main/res/layout/bottom_bar.xml" value="0.3161231884057971" />
@@ -37,6 +39,7 @@
         <entry key="..\:/Users/DODO/KanBagis/app/src/main/res/layout/fragment_account.xml" value="0.3482789855072464" />
         <entry key="..\:/Users/DODO/KanBagis/app/src/main/res/layout/fragment_add.xml" value="0.25" />
         <entry key="..\:/Users/DODO/KanBagis/app/src/main/res/layout/fragment_advert.xml" value="0.18414387031408308" />
+        <entry key="..\:/Users/DODO/KanBagis/app/src/main/res/layout/fragment_advert_dialog.xml" value="0.34148550724637683" />
         <entry key="..\:/Users/DODO/KanBagis/app/src/main/res/layout/fragment_announcement.xml" value="0.33" />
         <entry key="..\:/Users/DODO/KanBagis/app/src/main/res/layout/fragment_first.xml" value="0.37864583333333335" />
         <entry key="..\:/Users/DODO/KanBagis/app/src/main/res/layout/fragment_login.xml" value="0.25" />

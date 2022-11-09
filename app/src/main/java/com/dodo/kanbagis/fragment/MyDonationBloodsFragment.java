@@ -17,6 +17,7 @@ import com.dodo.kanbagis.databinding.FragmentMyDonationBloodsBinding;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;

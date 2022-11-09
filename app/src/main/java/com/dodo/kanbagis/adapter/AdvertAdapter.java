@@ -5,10 +5,16 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 import com.dodo.kanbagis.API.response.Advert;
 
+import com.dodo.kanbagis.activity.MainActivity;
 import com.dodo.kanbagis.databinding.AdvertItemBinding;
+import com.dodo.kanbagis.fragment.AdvertDialogFragment;
+import com.dodo.kanbagis.fragment.MyDonationBloodsFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,17 +22,15 @@ import java.util.List;
 public class AdvertAdapter extends RecyclerView.Adapter<AdvertAdapter.ViewHolder> {
 
     private final List<Advert> list = new ArrayList<>();
-
-    public AdvertAdapter() {
-    }
+    private Context context;
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        Context context = parent.getContext();
+        context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
-
         AdvertItemBinding binding = AdvertItemBinding.inflate(inflater, parent, false);
+
         return new ViewHolder(binding);
     }
 
@@ -40,6 +44,13 @@ public class AdvertAdapter extends RecyclerView.Adapter<AdvertAdapter.ViewHolder
         holder.binding.blondeMessage.setText(advert.getMessages());
         holder.binding.blondeAdressDetail.setText(advert.getAdress());
         holder.binding.blondePhone.setText(advert.getPhone());
+        holder.binding.advertItem.setOnLongClickListener(v -> {
+            FragmentActivity activity = (FragmentActivity)(context);
+            FragmentManager fm = activity.getSupportFragmentManager();
+            AdvertDialogFragment advertDialogFragment = new AdvertDialogFragment();
+            advertDialogFragment.show(fm,"fragment alert");
+            return true;
+        });
     }
 
     @Override

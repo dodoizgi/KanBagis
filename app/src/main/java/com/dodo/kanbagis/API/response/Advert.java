@@ -5,6 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Generated;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -16,6 +17,7 @@ import lombok.ToString;
 @Data
 @Getter
 @Setter
+@Generated
 public class Advert {
 
     @SerializedName("id")
@@ -36,6 +38,54 @@ public class Advert {
     @SerializedName("phone")
     @Expose
     private String phone;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getBloodGroup() {
+        return bloodGroup;
+    }
+
+    public void setBloodGroup(String bloodGroup) {
+        this.bloodGroup = bloodGroup;
+    }
+
+    public String getRh() {
+        return rh;
+    }
+
+    public void setRh(String rh) {
+        this.rh = rh;
+    }
+
+    public String getAdress() {
+        return adress;
+    }
+
+    public void setAdress(String adress) {
+        this.adress = adress;
+    }
+
+    public String getMessages() {
+        return messages;
+    }
+
+    public void setMessages(String messages) {
+        this.messages = messages;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
 
     public Advert(String adress, String bloodGroup, String messages, String phone, String rh) {
         this.adress = adress;
