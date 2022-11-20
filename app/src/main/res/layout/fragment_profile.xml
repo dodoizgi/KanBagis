@@ -37,17 +37,23 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <ImageView
-                    android:id="@+id/profile_user_image"
-                    android:layout_width="90dp"
-                    android:layout_height="90dp"
-                    android:background="@drawable/rounded_corners"
-                    android:padding="20dp"
-                    app:srcCompat="@drawable/ic_account"
-                    app:tint="@color/purple_500" />
+                <TextView
+                    android:id="@+id/letterIcon"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/avatar_circle_bg"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="22sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="HY" />
 
                 <TextView
-                    android:id="@+id/profile_user_name"
+                    android:id="@+id/account_user_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingTop="5dp"
@@ -78,7 +84,7 @@
                     android:padding="6dp"
                     android:scaleType="centerInside"
                     app:srcCompat="@drawable/ic_account"
-                    app:tint="@color/purple_500" />
+                    app:tint="@color/red_200" />
 
                 <TextView
                     android:layout_width="0dp"
@@ -89,11 +95,11 @@
                     android:textColor="@color/black"
                     android:textSize="14sp" />
 
-
                 <ImageView
-                    android:layout_width="15dp"
-                    android:layout_height="15dp"
-                    app:tint="@color/gray_500" />
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    app:tint="@color/gray_500"
+                    android:background="@drawable/ic_arrow_right"/>
             </LinearLayout>
 
             <LinearLayout
@@ -117,8 +123,7 @@
                     android:padding="6dp"
                     android:scaleType="centerInside"
                     app:srcCompat="@drawable/ic_baseline_toc_24"
-
-                    app:tint="@color/purple_500" />
+                    app:tint="@color/red_200" />
 
 
                 <TextView
@@ -130,13 +135,12 @@
                     android:textColor="@color/black"
                     android:textSize="14sp" />
 
-
                 <ImageView
-                    android:layout_width="15dp"
-                    android:layout_height="15dp"
-                    app:tint="@color/gray_500" />
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    app:tint="@color/gray_500"
+                    android:background="@drawable/ic_arrow_right"/>
             </LinearLayout>
-
 
             <LinearLayout
                 android:id="@+id/profile_my_messsages"
@@ -159,7 +163,7 @@
                     android:padding="6dp"
                     android:scaleType="centerInside"
                     app:srcCompat="@drawable/ic_message"
-                    app:tint="@color/purple_500" />
+                    app:tint="@color/red_200" />
 
                 <TextView
                     android:layout_width="0dp"
@@ -171,50 +175,10 @@
                     android:textSize="14sp" />
 
                 <ImageView
-                    android:layout_width="15dp"
-                    android:layout_height="15dp"
-                    app:tint="@color/gray_500" />
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:id="@+id/profile_my_settings"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/rounded_corners"
-                android:clickable="true"
-                android:focusable="true"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingHorizontal="16dp"
-                android:paddingVertical="14dp">
-
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:background="@drawable/ic_bg_shapest"
-                    android:padding="6dp"
-                    android:scaleType="centerInside"
-                    app:srcCompat="@drawable/ic_account"
-                    app:tint="@color/purple_500" />
-
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:paddingHorizontal="16dp"
-                    android:text="Ayarlar"
-                    android:textColor="@color/black"
-                    android:textSize="14sp" />
-
-
-                <ImageView
-                    android:layout_width="15dp"
-                    android:layout_height="15dp"
-                    app:tint="@color/gray_500" />
-
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    app:tint="@color/gray_500"
+                    android:background="@drawable/ic_arrow_right"/>
             </LinearLayout>
 
             <LinearLayout
@@ -238,7 +202,7 @@
                     android:padding="6dp"
                     android:scaleType="centerInside"
                     app:srcCompat="@drawable/ic_help"
-                    app:tint="@color/purple_500" />
+                    app:tint="@color/red_200" />
 
                 <TextView
                     android:layout_width="0dp"
@@ -249,160 +213,51 @@
                     android:textColor="@color/black"
                     android:textSize="14sp" />
 
-
                 <ImageView
-                    android:id="@+id/settings_help_arrow"
-                    android:layout_width="15dp"
-                    android:layout_height="15dp"
-                    app:tint="@color/gray_500" />
-
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    app:tint="@color/gray_500"
+                    android:background="@drawable/ic_arrow_right"/>
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/settings_help_subview"
+                android:id="@+id/profile_log_out"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="1dp"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/rounded_corners"
+                android:clickable="true"
+                android:focusable="true"
                 android:gravity="center_vertical"
-                android:orientation="vertical"
+                android:orientation="horizontal"
                 android:paddingHorizontal="16dp"
-                android:paddingVertical="14dp"
-                android:visibility="gone">
+                android:paddingVertical="14dp">
 
-                <LinearLayout
-                    android:id="@+id/help_nakilnat_layout"
-                    android:layout_width="match_parent"
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/ic_bg_shapest"
+                    android:padding="6dp"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@drawable/ic_account"
+                    app:tint="@color/red_200" />
+
+
+                <TextView
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:paddingVertical="10dp">
+                    android:layout_weight="1"
+                    android:paddingHorizontal="16dp"
+                    android:text="@string/log_out"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
 
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:padding="6dp"
-                        android:scaleType="centerInside"
-                        app:tint="@color/purple_500" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:paddingHorizontal="16dp"
-                        android:text="Bize Ulaşın"
-                        android:textColor="@color/black"
-                        android:textSize="14sp" />
-
-                    <ImageView
-                        android:layout_width="15dp"
-                        android:layout_height="15dp"
-                        app:tint="@color/gray_500" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:paddingVertical="10dp">
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:padding="6dp"
-                        android:scaleType="centerInside"
-                        app:tint="@color/purple_500" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:paddingHorizontal="16dp"
-                        android:text="Canlı Destek"
-                        android:textColor="@color/black"
-                        android:textSize="14sp" />
-
-
-                    <ImageView
-                        android:layout_width="15dp"
-                        android:layout_height="15dp"
-                        app:tint="@color/gray_500" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/asked_question_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:paddingVertical="10dp">
-
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:padding="6dp"
-                        android:scaleType="centerInside"
-                        app:tint="@color/purple_500" />
-
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:paddingHorizontal="16dp"
-                        android:text="Sıkça Sorulan Sorular"
-                        android:textColor="@color/black"
-                        android:textSize="14sp" />
-
-
-                    <ImageView
-                        android:layout_width="15dp"
-                        android:layout_height="15dp"
-                        app:tint="@color/gray_500" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/aggrement_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:paddingVertical="10dp">
-
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:padding="6dp"
-                        android:scaleType="centerInside"
-                        app:tint="@color/purple_500" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:paddingHorizontal="16dp"
-                        android:text="Sözleşmeler"
-                        android:textColor="@color/black"
-                        android:textSize="14sp" />
-
-
-                    <ImageView
-                        android:layout_width="15dp"
-                        android:layout_height="15dp"
-                        app:tint="@color/gray_500" />
-
-                </LinearLayout>
-
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    app:tint="@color/gray_500"
+                    android:background="@drawable/ic_arrow_right"/>
             </LinearLayout>
-
         </LinearLayout>
-
     </ScrollView>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

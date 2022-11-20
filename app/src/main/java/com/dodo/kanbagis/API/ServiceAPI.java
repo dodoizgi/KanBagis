@@ -8,9 +8,13 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
+import retrofit2.http.Field;
 import retrofit2.http.GET;
+import retrofit2.http.Headers;
+import retrofit2.http.PATCH;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface ServiceAPI {
@@ -41,8 +45,16 @@ public interface ServiceAPI {
     @POST("user")
     Call<User> postUser(@Body User user);
 
-    @PUT("user")
-    Call<User> putUser(@Body User user);
+    @PUT("user/{id}")
+    Call<User> putUser(@Path("id") int id,
+                       @Query("name") String name,
+                       @Query("lastname") String lastname,
+                       @Query("mail") String mail,
+                       @Query("password") String password,
+                       @Query("phone") String phone);
+
+    @PATCH("user/{id}")
+    Call<User> patchUser(@Path("id") int id, @Body User user);
 
     @DELETE("user")
     Call<User> deleteUser(@Body User user);

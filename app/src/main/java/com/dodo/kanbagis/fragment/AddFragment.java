@@ -2,6 +2,7 @@ package com.dodo.kanbagis.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -10,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.navigation.ui.NavigationUI;
 
 import com.dodo.kanbagis.API.ApiClient;
 import com.dodo.kanbagis.API.ServiceAPI;
@@ -17,6 +19,7 @@ import com.dodo.kanbagis.API.response.Advert;
 import com.dodo.kanbagis.R;
 import com.dodo.kanbagis.databinding.FragmentAddBinding;
 import com.dodo.kanbagis.utils.Validator;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.Objects;
 
@@ -64,6 +67,9 @@ public class AddFragment extends Fragment {
         binding.addContinueButton.setOnClickListener(view1 -> {
             binding.addContainerLayout.setVisibility(View.VISIBLE);
             binding.addSuccessContainerLayout.setVisibility(View.GONE);
+            BottomNavigationView bottomNavigationView = requireActivity().findViewById(R.id.bottomNavigationView);
+            MenuItem item = bottomNavigationView.getMenu().findItem(R.id.AnnouncementFragment);
+            NavigationUI.onNavDestinationSelected(item, navController);
         });
 
         binding.addBloodGroup.setAdapter(bloodGroupAdapter);
@@ -100,7 +106,6 @@ public class AddFragment extends Fragment {
                     binding.addContainerLayout.setVisibility(View.GONE);
                     binding.addSuccessContainerLayout.setVisibility(View.VISIBLE);
                     clearText();
-                    navController.navigate(R.id.action_AddFragment_to_AnnouncementFragment);
                 }
 
                 @Override

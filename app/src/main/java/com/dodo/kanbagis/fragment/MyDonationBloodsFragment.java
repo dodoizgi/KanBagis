@@ -1,13 +1,12 @@
 package com.dodo.kanbagis.fragment;
 
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 
 import com.dodo.kanbagis.API.ApiClient;
 import com.dodo.kanbagis.API.ServiceAPI;
@@ -17,7 +16,6 @@ import com.dodo.kanbagis.databinding.FragmentMyDonationBloodsBinding;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -61,4 +59,5 @@ public class MyDonationBloodsFragment extends Fragment {
             }
         });
     }
+
 }

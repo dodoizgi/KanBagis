@@ -29,6 +29,13 @@ public class AdvertDialogFragment extends DialogFragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = requireActivity().getLayoutInflater();
 
+        builder.setView(inflater.inflate(R.layout.fragment_advert_dialog, null))
+                // Add action buttons
+                .setPositiveButton(R.string.approve, (dialog, id) -> {
+                    // sign in the user ...
+                })
+                .setNegativeButton(R.string.cancel, (dialog, id) -> Objects.requireNonNull(AdvertDialogFragment.this.getDialog()).cancel());
+
         return builder.create();
     }
 

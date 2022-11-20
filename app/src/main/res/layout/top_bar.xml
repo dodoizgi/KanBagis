@@ -11,7 +11,7 @@
         android:paddingBottom="5dp">
 
         <ImageButton
-            android:id="@+id/top_bar_back"
+            android:id="@+id/account_top_bar_back"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_centerVertical="true"
@@ -27,14 +27,14 @@
             android:contentDescription="@string/back" />
 
         <TextView
-            android:id="@+id/top_bar_title"
+            android:id="@+id/account_top_bar_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
             android:layout_marginStart="56dp"
             android:layout_marginEnd="56dp"
-            android:layout_toEndOf="@+id/top_bar_back"
+            android:layout_toEndOf="@+id/account_top_bar_back"
             android:text="@string/blood_donation"
             android:textAlignment="center"
             android:textColor="@color/white"

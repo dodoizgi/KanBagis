@@ -1,66 +1,116 @@
 package com.dodo.kanbagis.fragment;
 
+import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
+
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.dodo.kanbagis.R;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link AccountFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import com.dodo.kanbagis.API.ApiClient;
+import com.dodo.kanbagis.API.ServiceAPI;
+import com.dodo.kanbagis.API.response.User;
+import com.dodo.kanbagis.R;
+import com.dodo.kanbagis.databinding.FragmentAccountBinding;
+import com.dodo.kanbagis.utils.KeyboardUtils;
+import com.dodo.kanbagis.utils.Prefs;
+import com.dodo.kanbagis.utils.StringUtils;
+import com.dodo.kanbagis.utils.Validator;
+
+import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+
 public class AccountFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public AccountFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment AccountFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static AccountFragment newInstance(String param1, String param2) {
-        AccountFragment fragment = new AccountFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
+    private FragmentAccountBinding binding;
+    private User user;
+    private ArrayList<User> users;
+    private final Class<User> userClass = User.class;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_account, container, false);
+        binding = FragmentAccountBinding.inflate(inflater, container, false);
+        KeyboardUtils.hideWhenTap(binding.accountScrool);
+        /*binding.accountScrool.post(() -> {
+            binding.accountScrool.smoothScrollTo(0, binding.getRoot().getTop());
+        });*/
+        createFragmentAccount();
+        return binding.getRoot();
+    }
+
+    private void createFragmentAccount() {
+        users = Prefs.getArrayList("user",userClass);
+        user = users.get(0);
+
+        binding.accountUserName.setText(user.name);
+        binding.lastNameEditText.setText(user.lastname);
+        binding.nameEditText.setText(user.name);
+        binding.accountUserImage.setText(StringUtils.letterIconCreate(user.name));
+        binding.emailEditText.setText(user.mail);
+        binding.phoneEditText.setText(user.phone);
+        binding.passwordEditText.setText(user.password);
+
+        binding.applyButton.setOnClickListener(view -> {
+            if (isFormValid()) {
+                KeyboardUtils.forceCloseKeyboard(view);
+                updatePost();
+            }
+        });
+    }
+
+    private void putPrefs() {
+        user.setName(binding.nameEditText.getText().toString());
+        user.setLastname(binding.lastNameEditText.getText().toString());
+        user.setMail(binding.emailEditText.getText().toString());
+        user.setPassword(binding.passwordEditText.getText().toString());
+        Prefs.put("user",users);
+    }
+
+    private void updatePost() {
+
+        ServiceAPI serviceAPI = ApiClient.getRetrofit().create(ServiceAPI.class);
+        Call<User> call = serviceAPI.putUser(user.id, user.name, user.lastname,user.mail,user.password,user.phone);
+
+        call.enqueue(new Callback<User>() {
+            @Override
+            public void onResponse(Call<User> call, Response<User> response) {
+                if (!response.isSuccessful()) {
+                    System.out.println("Code: " + response.code());
+                    return;
+                }
+                putPrefs();
+            }
+
+            @Override
+            public void onFailure(Call<User> call, Throwable t) {
+                System.out.println(t.getMessage());
+            }
+        });
+    }
+
+    private boolean isFormValid() {
+        return Validator.getInstance()
+                .isNotEmpty(binding.nameEditText,getResources().getString(R.string.Please_enter_your_name))
+                .isNotEmpty(binding.nameEditText,getResources().getString(R.string.Please_enter_your_last_name))
+                .isNotEmpty(binding.emailEditText, getResources().getString(R.string.Please_enter_your_mail))
+                .isNotEmpty(binding.passwordEditText, getResources().getString(R.string.Please_enter_your_password))
+                .isNotEmpty(binding.phoneEditText, getResources().getString(R.string.Please_enter_your_phone))
+                .isGreaterThanSix(binding.passwordEditText,getResources().getString(R.string.Please_control_your_password))
+                .isEmail(binding.emailEditTextInput,getResources().getString(R.string.Please_enter_your_mail))
+                .isPhoneNumberCharacterInput(binding.phoneEditTextInput, getResources().getString(R.string.Please_control_your_phone_number))
+                .isValid();
     }
 }

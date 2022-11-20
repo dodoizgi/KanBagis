@@ -21,6 +21,7 @@
     <string name="blood_request">Bağış taleplerim</string>
 
     <!-- C -->
+    <string name="cancel">Cancel</string>
     <string name="continue_text">Continue</string>
     <string name="control_error">Check the information you entered.</string>
 
@@ -37,6 +38,8 @@
     <string name="invalid_password">Password must be >5 characters</string>
 
     <!-- L -->
+    <string name="last_name">Last Name</string>
+    <string name="log_out">Log out</string>
     <string name="login_failed">"Login failed"</string>
     <string name="login_fragment_label">Login Fragment</string>
 
@@ -45,20 +48,27 @@
     <string name="my_donation_fragment">My Donation Fragment</string>
 
     <!-- N -->
+    <string name="name">Name</string>
     <string name="next">Next</string>
 
     <!-- P -->
     <string name="phone_number">Phone Number</string>
+    <string name="Please_control_your_password">Your password must be greater than 6 characters.</string>
     <string name="Please_control_your_phone_number">Your phone number must be 10 characters without a leading 0.</string>
     <string name="Please_enter_your_address">Please enter your address.</string>
     <string name="Please_enter_your_blood_group">Please enter your blood group.</string>
+    <string name="Please_enter_your_mail">Please enter your mail.</string>
     <string name="Please_enter_your_message">Please enter your message.</string>
+    <string name="Please_enter_your_name">Please enter your name.</string>
+    <string name="Please_enter_your_last_name">Please enter your last name.</string>
+    <string name="Please_enter_your_password">Please enter your password.</string>
     <string name="Please_enter_your_phone">Please enter your phone.</string>
     <string name="Please_enter_your_rh">Please enter your rh.</string>
     <string name="Please_just_blood_group">Please just blood group.</string>
     <string name="Please_just_rh">Please just rh + or -.</string>
     <string name="previous">Previous</string>
     <string name="profile_fragment">Profile Fragment</string>
+    <string name="profile_text">Profile</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
 

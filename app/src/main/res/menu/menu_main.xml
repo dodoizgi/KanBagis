@@ -14,6 +14,6 @@
     <item
         android:id="@+id/ProfileNavigation"
         android:orderInCategory="100"
-        android:title="@string/action_sign_in_short"
+        android:title="@string/profile_text"
         android:icon="@drawable/ic_account"/>
 </menu>

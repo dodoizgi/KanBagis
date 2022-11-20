@@ -20,6 +20,7 @@
     <string name="blood_rh">Kan Rh</string>
 
     <!-- C -->
+    <string name="cancel">İptal</string>
     <string name="continue_text">Devam et</string>
     <string name="control_error">Girdiğiniz bilgileri kontrol ediniz.</string>
 
@@ -36,6 +37,8 @@
     <string name="invalid_password">Şifre 5 karakterden büyük olmalıdır.</string>S
 
     <!-- L -->
+    <string name="last_name">Soy isim</string>
+    <string name="log_out">Çıkış yap</string>
     <string name="login_failed">Giriş hatası</string>
     <string name="login_fragment_label">Login Fragment</string>
 
@@ -44,20 +47,27 @@
     <string name="my_donation_fragment">My Donation Fragment</string>
 
     <!-- N -->
+    <string name="name">İsim</string>
     <string name="next">Next</string>
 
     <!-- P -->
     <string name="phone_number">Telefon numarası</string>
+    <string name="Please_control_your_password">Şifreniz  6 karakterden büyük olmalıdır.</string>
+    <string name="Please_control_your_phone_number">Telefon numaranız başında 0 olmadan 10 karakter olmalıdır.</string>
     <string name="Please_enter_your_address">Lütfen adresinizi giriniz.</string>
     <string name="Please_enter_your_blood_group">Lütfen kan grubunuzu giriniz.</string>
+    <string name="Please_enter_your_mail">Lütfen mailinizi giriniz.</string>
     <string name="Please_enter_your_message">Lütfen mesajınızı giriniz.</string>
+    <string name="Please_enter_your_name">Lütfen isminizi giriniz.</string>
+    <string name="Please_enter_your_last_name">Lütfen soy isminizi giriniz.</string>
+    <string name="Please_enter_your_password">Lütfen şifrenizi giriniz.</string>
     <string name="Please_enter_your_phone">Lütfen telefon numaranızı giriniz.</string>
     <string name="Please_enter_your_rh">Lütfen kan grubunuzu giriniz.</string>
-    <string name="Please_control_your_phone_number">Telefon numaranız başında 0 olmadan 10 karakter olmalıdır.</string>
     <string name="Please_just_blood_group">Lütfen sadece kan grubunuzu giriniz.</string>
     <string name="Please_just_rh">Lütfen sadece Rh + veya - giriniz.</string>
     <string name="previous">Önceki</string>
     <string name="profile_fragment">Profil Fragment</string>
+    <string name="profile_text">Hesap</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Şifre</string>
 

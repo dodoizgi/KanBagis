@@ -19,6 +19,10 @@ public class StringUtils {
         return str.length()<=6;
     }
 
+    public static String letterIconCreate(@NonNull String str){
+        return str.substring(0,1);
+    }
+
     public static String emptyDefault(String str, String def) {
         return isNullOrEmpty(str) ? def : str;
     }

@@ -42,7 +42,7 @@ public class LoginFragment extends Fragment {
         binding.loginLayout.signUpButton.setOnClickListener(v -> binding.vf.setDisplayedChild(1));
         binding.registerLayout.signInButton.setOnClickListener(v -> binding.vf.setDisplayedChild(0));
 
-        binding.loginLayout.cirLoginButton.setOnClickListener(v -> logIn());
+        binding.loginLayout.applyButton.setOnClickListener(v -> logIn());
         binding.registerLayout.registerButton.setOnClickListener(v -> signUp());
     }
 
@@ -65,7 +65,9 @@ public class LoginFragment extends Fragment {
                     return;
                 }
 
+
                 Prefs.put("loggedin", true);
+                Prefs.put("user",response.body());
                 navController.navigate(R.id.action_LoginFragment_to_AnnouncementFragment);
 
             }

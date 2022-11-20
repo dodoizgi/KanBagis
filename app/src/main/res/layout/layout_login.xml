@@ -26,7 +26,7 @@
             android:textSize= "@dimen/headerTextSize"
             android:textAlignment= "center"
             android:textStyle= "bold"
-            android:textColor= "@color/primaryTextColor"
+            android:textColor= "@color/red_200"
             android:text="Login"
             android:layout_marginTop="@dimen/loginViewsMargin"/>
 
@@ -42,7 +42,7 @@
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:textSize= "@dimen/newsMoreTextSize"
-                android:backgroundTint="@color/primaryTextColor"
+                android:backgroundTint="@color/red_200"
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
                 android:hint="@string/login_email_hint"/>
@@ -60,7 +60,7 @@
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:textSize= "@dimen/newsMoreTextSize"
-                android:backgroundTint="@color/primaryTextColor"
+                android:backgroundTint="@color/red_200"
                 android:hint="@string/login_password_hint"
                 android:maxLines="1"
                 android:inputType="textPassword"/>
@@ -70,14 +70,14 @@
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:text="Forgot Password?"
-            android:textColor="@color/primaryTextColor"
+            android:textColor="@color/red_200"
             android:textSize="@dimen/newsMoreTextSize"
             android:layout_gravity="end"
             android:onClick="viewForgotPAssword"
             android:layout_marginTop="10dp"/>
 
-        <Button
-            android:id="@+id/cirLoginButton"
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/applyButton"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:background="@drawable/login_button_bk"
@@ -93,7 +93,7 @@
             android:layout_width="match_parent"
             android:textAlignment="center"
             android:textStyle="bold"
-            android:textColor="@color/primaryTextColor"
+            android:textColor="@color/red_200"
             android:text="@string/login_signup_hint"
             android:onClick="viewRegisterClicked"
             android:layout_marginTop="@dimen/loginViewsMargin"/>

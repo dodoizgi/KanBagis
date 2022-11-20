@@ -88,6 +88,20 @@ public class Validator {
         return this;
     }
 
+    public Validator isGreaterThanSix(EditText inputLayout, String msg) {
+        String str = inputLayout.getText().toString();
+
+        if (StringUtils.isGreaterThanSix(str)) {
+            inputLayout.setError(msg);
+            valids.add(false);
+        } else {
+            inputLayout.setError(null);
+            valids.add(true);
+        }
+
+        return this;
+    }
+
     public Validator isNotEmpty(EditText inputLayout, String msg) {
         String str = inputLayout.getText().toString();
 
@@ -140,6 +154,20 @@ public class Validator {
                 inputLayout.setError(null);
                 valids.add(true);
             }
+
+        return this;
+    }
+
+    public Validator isPhoneNumberCharacterInput(TextInputLayout inputLayout, String msg) {
+        String phone = inputLayout.getEditText().getText().toString();
+
+        if (phone.length() != 10) {
+            inputLayout.setError(msg);
+            valids.add(false);
+        } else {
+            inputLayout.setError(null);
+            valids.add(true);
+        }
 
         return this;
     }

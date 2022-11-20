@@ -56,9 +56,6 @@
             android:label="@string/profile_fragment"
             tools:layout="@layout/fragment_profile">
             <action
-                android:id="@+id/action_ProfileFragment_to_SettingsFragment"
-                app:destination="@id/SettingsFragment" />
-            <action
                 android:id="@+id/action_ProfileFragment_to_MessageFragment"
                 app:destination="@id/MessageFragment" />
             <action
@@ -85,15 +82,9 @@
             tools:layout="@layout/fragment_messages"/>
 
         <fragment
-            android:id="@+id/SettingsFragment"
-            android:name="com.dodo.kanbagis.fragment.SettingsFragment"
-            android:label="@string/setting_fragment"
-            tools:layout="@layout/fragment_settings"/>
-
-        <fragment
             android:id="@+id/MyDonationFragment"
             android:name="com.dodo.kanbagis.fragment.MyDonationBloodsFragment"
-            android:label="@string/setting_fragment"
+            android:label="@string/my_donation_fragment"
             tools:layout="@layout/fragment_my_donation_bloods"/>
 
     </navigation>
