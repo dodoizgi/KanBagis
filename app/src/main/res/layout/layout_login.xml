@@ -73,7 +73,6 @@
             android:textColor="@color/red_200"
             android:textSize="@dimen/newsMoreTextSize"
             android:layout_gravity="end"
-            android:onClick="viewForgotPAssword"
             android:layout_marginTop="10dp"/>
 
         <androidx.appcompat.widget.AppCompatButton

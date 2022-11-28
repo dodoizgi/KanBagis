@@ -5,8 +5,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
+import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
@@ -18,8 +21,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
+    BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,10 +32,14 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        NavController navController = Navigation.findNavController(this, R.id.container_fragment);
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
-        NavigationUI.setupWithNavController(bottomNavigationView, navController);
+        View decorView = getWindow().getDecorView();
+        int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_FULLSCREEN;
+        decorView.setSystemUiVisibility(uiOptions);
 
+        NavController navController = Navigation.findNavController(this, R.id.container_fragment);
+        bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        NavigationUI.setupWithNavController(bottomNavigationView, navController);
 
         binding.getRoot().getViewTreeObserver().addOnGlobalLayoutListener(() -> {
             binding.getRoot();
@@ -45,10 +52,18 @@ public class MainActivity extends AppCompatActivity {
                 binding.bottomNavigationView.setVisibility(View.VISIBLE);
             }
         });
+
+        navController.addOnDestinationChangedListener((navController1, navDestination, bundle) -> {
+            if(navDestination.getId() == R.id.LoginFragment || navDestination.getId() == R.id.SplashFragment) {
+                bottomNavigationView.setVisibility(View.GONE);
+            } else {
+                bottomNavigationView.setVisibility(View.VISIBLE);
+            }
+        });
     }
 
     public void bottomBarGone() {
-        binding.bottomNavigationView.setVisibility(View.GONE);
+            bottomNavigationView.setVisibility(View.GONE);
     }
 
     @Override

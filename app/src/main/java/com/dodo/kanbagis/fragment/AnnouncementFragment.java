@@ -17,7 +17,6 @@ import com.dodo.kanbagis.databinding.FragmentAnnouncementBinding;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -64,7 +63,7 @@ public class AnnouncementFragment extends Fragment {
 
                 @Override
                 public void onFailure(Call<List<Advert>> call, Throwable t) {
-                    System.out.println("fail : " + t);
+                    System.out.printf("fail : %s%n", t);
                 }
             });
         },1000);

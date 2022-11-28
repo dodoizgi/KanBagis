@@ -15,6 +15,7 @@ import com.dodo.kanbagis.API.ApiClient;
 import com.dodo.kanbagis.API.ServiceAPI;
 import com.dodo.kanbagis.API.response.User;
 import com.dodo.kanbagis.R;
+import com.dodo.kanbagis.activity.MainActivity;
 import com.dodo.kanbagis.databinding.FragmentLoginBinding;
 import com.dodo.kanbagis.utils.Prefs;
 
@@ -38,6 +39,8 @@ public class LoginFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
+
+        ((MainActivity) requireActivity()).bottomBarGone();
 
         binding.loginLayout.signUpButton.setOnClickListener(v -> binding.vf.setDisplayedChild(1));
         binding.registerLayout.signInButton.setOnClickListener(v -> binding.vf.setDisplayedChild(0));
@@ -69,7 +72,6 @@ public class LoginFragment extends Fragment {
                 Prefs.put("loggedin", true);
                 Prefs.put("user",response.body());
                 navController.navigate(R.id.action_LoginFragment_to_AnnouncementFragment);
-
             }
 
             @Override

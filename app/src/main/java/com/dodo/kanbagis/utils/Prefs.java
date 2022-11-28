@@ -206,7 +206,7 @@ public class Prefs {
 
     //getArrayList
     public static <T> ArrayList<T> getArrayList(String key, Class<?> tClass) {
-        Log.e("_+_++__+_+", "" + tClass.getName());
+        Log.e("_+_++__+_+", String.format("%s", tClass.getName()));
         Gson gson = new Gson();
         String data = Prefs.sp.getString(key, "");
         if (!data.trim().isEmpty()) {

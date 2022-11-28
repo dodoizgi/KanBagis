@@ -55,7 +55,7 @@ public class MyDonationBloodsFragment extends Fragment {
 
             @Override
             public void onFailure(Call<List<Advert>> call, Throwable t) {
-                System.out.println("fail : " + t);
+                System.out.printf("%sfail : %n", t);
             }
         });
     }

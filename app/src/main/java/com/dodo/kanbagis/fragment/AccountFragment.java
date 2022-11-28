@@ -1,8 +1,5 @@
 package com.dodo.kanbagis.fragment;
 
-import static android.view.View.GONE;
-import static android.view.View.VISIBLE;
-
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,6 +19,7 @@ import com.dodo.kanbagis.utils.StringUtils;
 import com.dodo.kanbagis.utils.Validator;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -53,6 +51,10 @@ public class AccountFragment extends Fragment {
 
     private void createFragmentAccount() {
         users = Prefs.getArrayList("user",userClass);
+
+        if (users.size() == 0)
+            return;
+
         user = users.get(0);
 
         binding.accountUserName.setText(user.name);
@@ -72,10 +74,10 @@ public class AccountFragment extends Fragment {
     }
 
     private void putPrefs() {
-        user.setName(binding.nameEditText.getText().toString());
-        user.setLastname(binding.lastNameEditText.getText().toString());
-        user.setMail(binding.emailEditText.getText().toString());
-        user.setPassword(binding.passwordEditText.getText().toString());
+        user.setName(Objects.requireNonNull(binding.nameEditText.getText()).toString());
+        user.setLastname(Objects.requireNonNull(binding.lastNameEditText.getText()).toString());
+        user.setMail(Objects.requireNonNull(binding.emailEditText.getText()).toString());
+        user.setPassword(Objects.requireNonNull(binding.passwordEditText.getText()).toString());
         Prefs.put("user",users);
     }
 
@@ -88,7 +90,7 @@ public class AccountFragment extends Fragment {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 if (!response.isSuccessful()) {
-                    System.out.println("Code: " + response.code());
+                    System.out.printf("Code: %d%n", response.code());
                     return;
                 }
                 putPrefs();
