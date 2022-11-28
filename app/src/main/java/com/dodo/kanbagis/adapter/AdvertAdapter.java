@@ -38,9 +38,11 @@ public class AdvertAdapter extends RecyclerView.Adapter<AdvertAdapter.ViewHolder
     public void onBindViewHolder(ViewHolder holder, int position) {
         Advert advert = list.get(position);
 
-        String bloodGroup = advert.getBloodGroup() + " " + advert.getRh();
-        holder.binding.blondeGroup.setText(bloodGroup);
+        if (advert == null)
+            return;
 
+        String bloodGroup = String.format("%s %s", advert.getBloodGroup(), advert.getRh());
+        holder.binding.blondeGroup.setText(bloodGroup);
         holder.binding.blondeMessage.setText(advert.getMessages());
         holder.binding.blondeAdressDetail.setText(advert.getAdress());
         holder.binding.blondePhone.setText(advert.getPhone());
