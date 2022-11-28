@@ -53,8 +53,8 @@ public class AddFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
 
-        ArrayAdapter<String> bloodGroupAdapter = new ArrayAdapter<String>(requireContext(), R.layout.blonde_list_item, BloodGroup);
-        ArrayAdapter<String> bloodRhAdapter = new ArrayAdapter<String>(requireContext(), R.layout.blonde_list_item, BloodRh);
+        ArrayAdapter<String> bloodGroupAdapter = new ArrayAdapter<>(requireContext(), R.layout.blonde_list_item, BloodGroup);
+        ArrayAdapter<String> bloodRhAdapter = new ArrayAdapter<>(requireContext(), R.layout.blonde_list_item, BloodRh);
 
         binding.addBloodGroup.setOnClickListener(view1 ->
             binding.addBloodGroup.showDropDown()
